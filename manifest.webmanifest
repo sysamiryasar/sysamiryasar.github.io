@@ -1,0 +1,18 @@
+{
+  "name": "Samir Yasar — Soar & Sirat",
+  "short_name": "Samir Yasar",
+  "description": "Portfolio of Samir Yasar — creator of Soar, a six-app AI and productivity ecosystem, and Sirat, a fifteen-app suite for Islamic learning and community life.",
+  "start_url": "/index.html",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0a0814",
+  "theme_color": "#0a0814",
+  "icons": [
+    {
+      "src": "assets/logo_favicon.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

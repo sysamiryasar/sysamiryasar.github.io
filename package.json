@@ -1,0 +1,13 @@
+{
+  "name": "samir-yasar-portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio of Samir Yasar — creator of Soar and Sirat ecosystems",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "author": "Samir Yasar",
+  "license": "MIT",
+  "private": true
+}

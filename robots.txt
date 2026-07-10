@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://samiryasar.com/sitemap.xml
