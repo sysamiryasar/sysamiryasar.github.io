@@ -535,8 +535,9 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         }),
       });
 
-      // No /api/contact route on this host (e.g. static GitHub Pages) — fall back to mailto.
-      if (res.status === 404) {
+      // No working /api/contact route on this host — static hosts like GitHub Pages either
+      // 404 the path (unknown route) or 405 it (they only serve GET/HEAD at all) — fall back to mailto.
+      if (res.status === 404 || res.status === 405) {
         fallbackToEmail();
         return;
       }
