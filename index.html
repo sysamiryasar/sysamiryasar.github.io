@@ -3,484 +3,157 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Samir Yasar</title>
-  <meta name="description" content="Portfolio of Samir Yasar — creator of Soar, a six-app AI and productivity ecosystem, and Sirat, a fifteen-app suite for Islamic learning and community life." />
-  <meta name="theme-color" content="#0a0814" />
+  <meta name="description" content="Samir Yasar builds ambitious digital systems at the intersection of AI, human potential, and meaningful technology." />
+  <meta name="theme-color" content="#08090e" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Samir Yasar — Soar &amp; Sirat" />
-  <meta property="og:description" content="Portfolio of Samir Yasar — creator of Soar, a six-app AI and productivity ecosystem, and Sirat, a fifteen-app suite for Islamic learning and community life." />
-  <meta property="og:url" content="https://samiryasar.com/" />
-  <meta property="og:image" content="https://samiryasar.com/assets/logo_favicon.png" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Samir Yasar — Soar &amp; Sirat" />
-  <meta name="twitter:description" content="Portfolio of Samir Yasar — creator of Soar, a six-app AI and productivity ecosystem, and Sirat, a fifteen-app suite for Islamic learning and community life." />
-  <meta name="twitter:image" content="https://samiryasar.com/assets/logo_favicon.png" />
+  <meta property="og:title" content="Samir Yasar - Future Systems" />
+  <meta property="og:description" content="A cinematic portfolio for a builder of ambitious digital systems." />
+  <meta property="og:url" content="https://samiryasar14.github.io/" />
+  <title>Samir Yasar | Future Systems</title>
   <link rel="icon" type="image/png" href="assets/logo_favicon.png" />
-  <link rel="apple-touch-icon" href="assets/logo_favicon.png" />
-  <link rel="manifest" href="manifest.webmanifest" />
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Samir Yasar",
-    "url": "https://samiryasar.com",
-    "jobTitle": "Software Developer & Product Designer",
-    "description": "Creator of Soar and Sirat ecosystems",
-    "sameAs": ["https://github.com/samiryasar14"]
-  }
-  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <a class="skip-link" href="#main-content">Skip to content</a>
-  <canvas class="bg-canvas" id="bgCanvas" aria-hidden="true"></canvas>
-  <div class="cyber-grid" aria-hidden="true"></div>
-  <div class="progress-bar" id="progressBar" aria-hidden="true"></div>
-  <div class="grain" aria-hidden="true"></div>
-  <div class="scanlines" aria-hidden="true"></div>
-  <div class="glow" id="glow" aria-hidden="true"></div>
+<body class="antialiased">
+  <div class="site-loader" id="siteLoader" aria-hidden="true">
+    <div class="loader-mark"><span></span><span></span><span></span></div>
+    <p>INITIALIZING / 2026</p><div class="loader-track"><i></i></div>
+  </div>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+  <canvas id="universe" aria-hidden="true"></canvas>
+  <div class="cosmic-vignette" aria-hidden="true"></div>
 
-  <header class="nav" id="nav">
-    <div class="nav__inner">
-      <a href="#top" class="nav__mark"><img src="assets/logo_favicon.png" alt="Samir Yasar logo" /></a>
-      <nav class="nav__links" id="navLinks">
-        <a href="#about"><span>01</span>About</a>
-        <a href="#map"><span>02</span>Map</a>
-        <a href="#focus"><span>03</span>Focus</a>
-        <a href="#snapshot"><span>04</span>Snapshot</a>
-        <a href="soar.html"><span>05</span>Soar</a>
-        <a href="sirat.html"><span>06</span>Sirat</a>
-        <a href="about.html"><span>07</span>Story</a>
-        <a href="roadmap.html"><span>08</span>Roadmap</a>
-        <a href="#contact"><span>09</span>Contact</a>
-      </nav>
-      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme">
-        <svg class="icon-moon" viewBox="0 0 24 24" fill="none"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" /></svg>
-        <svg class="icon-sun" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.5" /><path d="M12 2.5v2M12 19.5v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2.5 12h2M19.5 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /></svg>
-      </button>
-      <button class="cmdk-btn" id="cmdkBtn" type="button" aria-haspopup="dialog">
-        <span>Jump to</span><kbd>Ctrl K</kbd>
-      </button>
-      <button class="shortcuts-btn" id="shortcutsBtn" type="button" aria-haspopup="dialog" aria-label="Keyboard shortcuts">?</button>
-      <button class="nav__toggle" id="navToggle" type="button" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span>
-      </button>
-    </div>
+  <header class="nav-shell" id="navbar">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand magnetic" href="#top" aria-label="Samir Yasar home"><span class="brand-mark">S</span><span>Samir Yasar</span></a>
+      <div class="nav-links" id="navLinks">
+        <a href="#vision">Vision</a><a href="#systems">Systems</a><a href="#pricing">Pricing</a><a href="#signal">Signal</a><a href="#journal">Journal</a>
+      </div>
+      <div class="nav-actions">
+        <button class="icon-btn magnetic audio-toggle is-muted" id="audioToggle" type="button" aria-label="Play ambient sound">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 5V4L8 9H4z"></path><path class="audio-toggle__wave" d="M16.5 8.5a5 5 0 0 1 0 7"></path><path class="audio-toggle__wave audio-toggle__wave--far" d="M19 6a8.5 8.5 0 0 1 0 12"></path><line class="audio-toggle__slash" x1="3" y1="21" x2="21" y2="3"></line></svg>
+        </button>
+        <button class="icon-btn magnetic" id="searchButton" aria-label="Open site navigation"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="5.8"></circle><path d="m16 16 4.2 4.2"></path></svg></button>
+        <a class="nav-cta magnetic" href="#contact"><span>Start a conversation</span><i></i></a>
+        <button class="menu-btn" id="menuButton" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+      </div>
+    </nav>
   </header>
 
-  <div class="cmdk" id="cmdk" hidden>
-    <div class="cmdk__backdrop" id="cmdkBackdrop"></div>
-    <div class="cmdk__panel" role="dialog" aria-modal="true" aria-label="Jump to section">
-      <input class="cmdk__input" id="cmdkInput" type="text" placeholder="Jump to a section…" autocomplete="off" />
-      <ul class="cmdk__list" id="cmdkList">
-        <li data-target="#top" class="cmdk__item is-active" tabindex="0"><span>Home</span><span class="mono">Top</span></li>
-        <li data-target="#about" class="cmdk__item" tabindex="0"><span>About</span><span class="mono">01</span></li>
-        <li data-target="#map" class="cmdk__item" tabindex="0"><span>Systems Map</span><span class="mono">02</span></li>
-        <li data-target="#focus" class="cmdk__item" tabindex="0"><span>Focus Areas</span><span class="mono">03</span></li>
-        <li data-target="#snapshot" class="cmdk__item" tabindex="0"><span>Snapshot</span><span class="mono">04</span></li>
-        <li data-href="soar.html" class="cmdk__item" tabindex="0"><span>Soar</span><span class="mono">05</span></li>
-        <li data-href="sirat.html" class="cmdk__item" tabindex="0"><span>Sirat</span><span class="mono">06</span></li>
-        <li data-href="about.html" class="cmdk__item" tabindex="0"><span>Story</span><span class="mono">07</span></li>
-        <li data-href="roadmap.html" class="cmdk__item" tabindex="0"><span>Roadmap</span><span class="mono">08</span></li>
-        <li data-target="#contact" class="cmdk__item" tabindex="0"><span>Contact</span><span class="mono">09</span></li>
-      </ul>
+  <div class="command-panel" id="commandPanel" aria-hidden="true">
+    <button class="command-backdrop" data-close-command aria-label="Close navigation"></button>
+    <div class="command-content" role="dialog" aria-modal="true" aria-label="Site navigation">
+      <p class="eyebrow">Navigate the field</p>
+      <a href="#vision" data-command-link>Vision <b>01</b></a><a href="#systems" data-command-link>Systems <b>02</b></a><a href="#pricing" data-command-link>Pricing <b>03</b></a><a href="#signal" data-command-link>Signal <b>04</b></a><a href="#journal" data-command-link>Journal <b>05</b></a><a href="#contact" data-command-link>Contact <b>06</b></a>
     </div>
   </div>
 
-  <main id="main-content">
-    <section class="hero" id="top">
-      <p class="mono scramble reveal">Portfolio — Samir Yasar — Est. 2026</p>
-      <h1 class="reveal">
-        I build the tools<br />
-        that help you <em class="c-soar">soar</em> —<br />
-        and stay on the <em class="c-sirat">path</em>.
-      </h1>
-      <p class="hero__sub reveal">
-        Two ecosystems, one builder. <strong>Soar</strong> is a six-app AI and productivity ecosystem.
-        <strong>Sirat</strong> is a fifteen-app suite for Islamic learning and community life.
-      </p>
-      <div class="hero__links reveal">
-        <a href="soar.html" class="btn-solid btn-solid--soar magnetic">View Soar <span>→</span></a>
-        <a href="sirat.html" class="btn-solid btn-solid--sirat magnetic">View Sirat <span>→</span></a>
+  <main id="top">
+    <section class="hero section">
+      <div class="hero-orbit" aria-hidden="true"><span></span><span></span><span></span></div>
+      <div class="hero-content">
+        <p class="eyebrow hero-kicker"><i></i> Independent builder / Chicago, IL</p>
+        <h1 class="display split-reveal">Technology<br />with <em>gravity.</em></h1>
+        <p class="hero-copy reveal-up">I design and build future-facing systems where intelligence, utility, and human meaning move as one.</p>
+        <div class="hero-actions reveal-up"><a class="button button-primary magnetic" href="#systems">Explore the work <span>↗</span></a><a class="text-link" href="#vision">Enter the field <span>↓</span></a></div>
       </div>
+      <div class="hero-meta reveal-up"><span>SCROLL TO EXPLORE</span><span class="scroll-line"></span><span>01 / 06</span></div>
+      <div class="hero-stat stat-float" data-depth="0.14"><span>LATITUDE</span><strong>41.8781° N</strong><small>Building from here.<i></i></small></div>
+    </section>
 
-      <div class="stats reveal">
-        <div class="stats__item">
-          <span class="stats__num" data-count="2">0</span>
-          <span class="mono">Ecosystems</span>
-        </div>
-        <div class="stats__item">
-          <span class="stats__num" data-count="21">0</span>
-          <span class="mono">Apps in motion</span>
-        </div>
-        <div class="stats__item">
-          <span class="stats__num" data-count="1">0</span>
-          <span class="mono">Builder</span>
-        </div>
+    <section class="manifesto section" id="vision">
+      <div class="section-label"><span>01</span><p>Direction of travel</p></div>
+      <div class="manifesto-layout">
+        <h2 class="headline split-reveal">The next era of software should feel less like <em>using a tool</em> and more like <em>gaining momentum.</em></h2>
+        <div class="manifesto-aside reveal-up"><p>I am interested in the spaces between ambition and execution: the parts of life, work, learning, and community that deserve better systems.</p><a href="about.html" class="text-link">The story so far <span>↗</span></a></div>
+      </div>
+      <div class="orbital-grid reveal-up" aria-label="Focus areas"><div><b>01</b><span>Artificial<br />Intelligence</span></div><div><b>02</b><span>Product<br />Systems</span></div><div><b>03</b><span>Human<br />Potential</span></div><div><b>04</b><span>Community<br />Tools</span></div></div>
+    </section>
+
+    <section class="systems section" id="systems">
+      <div class="section-label"><span>02</span><p>Systems in formation</p></div>
+      <div class="systems-heading"><h2 class="headline">Two signals.<br /><em>One horizon.</em></h2><p>Quietly incubated. Intentionally distinct. Built for a world that is still arriving.</p></div>
+      <div class="system-rail">
+        <article class="system-card system-card--blue tilt-card"><div class="card-visual"><div class="planet planet--blue"></div><span class="card-radar"></span><span class="card-coordinate">/ 0001</span></div><div class="card-body"><p class="eyebrow">Future system / Alpha</p><h3>Soar</h3><p>A confidential project in active formation. The first transmission is on its way.</p><a class="card-link" href="soar.html">View classified teaser <span>↗</span></a></div></article>
+        <article class="system-card system-card--violet tilt-card"><div class="card-visual"><div class="planet planet--violet"></div><span class="card-radar"></span><span class="card-coordinate">/ 0002</span></div><div class="card-body"><p class="eyebrow">Future system / Beta</p><h3>Sirat</h3><p>A confidential project in active formation. A new path is being drawn in the dark.</p><a class="card-link" href="sirat.html">View classified teaser <span>↗</span></a></div></article>
+        <article class="system-card system-card--dark tilt-card"><div class="card-visual card-visual--signal"><div class="signal-lines"></div><span class="card-coordinate">/ OPEN CHANNEL</span></div><div class="card-body"><p class="eyebrow">Collaborations</p><h3>In the room.</h3><p>For challenging ideas, bold teams, and work that deserves uncommon care.</p><a class="card-link" href="#contact">Start a signal <span>↗</span></a></div></article>
       </div>
     </section>
 
-    <div class="ticker" aria-hidden="true">
-      <div class="ticker__track">
-        <span>Soar AI</span><span>Soar Work</span><span>Soar Business</span><span>Soar Life</span><span>Soar Connect</span><span>Soar Studio</span><span>Sirat One</span><span>Sirat AI</span><span>Sirat Quran</span><span>Sirat Education</span><span>Sirat Schools</span><span>Sirat Mosques</span><span>Sirat Family</span><span>Sirat Kids</span><span>Sirat Community</span><span>Sirat Finance</span><span>Sirat Cloud</span><span>Sirat Developers</span><span>Sirat Research</span><span>Sirat Studio</span><span>Sirat Foundation</span>
-        <span>Soar AI</span><span>Soar Work</span><span>Soar Business</span><span>Soar Life</span><span>Soar Connect</span><span>Soar Studio</span><span>Sirat One</span><span>Sirat AI</span><span>Sirat Quran</span><span>Sirat Education</span><span>Sirat Schools</span><span>Sirat Mosques</span><span>Sirat Family</span><span>Sirat Kids</span><span>Sirat Community</span><span>Sirat Finance</span><span>Sirat Cloud</span><span>Sirat Developers</span><span>Sirat Research</span><span>Sirat Studio</span><span>Sirat Foundation</span>
-      </div>
-    </div>
-
-    <section class="about" id="about">
-      <div class="about__grid">
-        <p class="mono eyebrow reveal">01 — About</p>
-        <div class="about__body reveal">
-          <p class="about__lead">
-            I design and ship software that removes friction — an AI assistant that
-            helps you think through your day, or a platform that helps someone learn
-            their deen and stay connected to their local masjid.
-          </p>
-          <p class="about__detail">
-            Everything I build lives under one of two roofs. The map below shows how
-            it fits together — the teaser cards after that link to a full page on each suite.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="map" id="map">
-      <div class="map__inner">
-        <p class="mono eyebrow reveal">02 — Systems Map</p>
-        <h2 class="reveal">How it fits together</h2>
-        <p class="map__sub reveal">Hover or tap a node — each one has a note.</p>
-
-        <div class="map__grid">
-          <div class="node-map node-map--soar reveal" data-default="Soar is the umbrella — six apps, one AI core.">
-            <svg viewBox="0 0 260 230" class="node-map__svg" role="img" aria-label="Soar systems map">
-              <line x1="130" y1="115" x2="130" y2="30" class="node-map__line" />
-              <line x1="130" y1="115" x2="204" y2="73" class="node-map__line" />
-              <line x1="130" y1="115" x2="204" y2="158" class="node-map__line" />
-              <line x1="130" y1="115" x2="130" y2="200" class="node-map__line" />
-              <line x1="130" y1="115" x2="56" y2="158" class="node-map__line" />
-              <line x1="130" y1="115" x2="56" y2="73" class="node-map__line" />
-              <circle cx="130" cy="115" r="30" class="node-map__center" />
-              <text x="130" y="120" class="node-map__center-text">Soar</text>
-
-              <g class="node-map__node" tabindex="0" role="button" aria-label="Soar AI node" data-note="Personal and business AI assistant ecosystem — the intelligence layer under everything else.">
-                <circle cx="130" cy="30" r="22" />
-                <text x="130" y="34">AI</text>
-              </g>
-              <g class="node-map__node" tabindex="0" role="button" aria-label="Soar Work node" data-note="A smart workspace for tasks, projects, notes, docs, and team collaboration.">
-                <circle cx="204" cy="73" r="22" />
-                <text x="204" y="77">Work</text>
-              </g>
-              <g class="node-map__node" tabindex="0" role="button" aria-label="Soar Business node" data-note="A full business operating system — CRM, sales, marketing, inventory, and finance.">
-                <circle cx="204" cy="158" r="22" />
-                <text x="204" y="162">Biz</text>
-              </g>
-              <g class="node-map__node" tabindex="0" role="button" aria-label="Soar Life node" data-note="A personal operating system for goals, habits, health, budget, and family life.">
-                <circle cx="130" cy="200" r="22" />
-                <text x="130" y="204">Life</text>
-              </g>
-              <g class="node-map__node" tabindex="0" role="button" aria-label="Soar Connect node" data-note="Messaging, communities, events, and professional networking in one place.">
-                <circle cx="56" cy="158" r="22" />
-                <text x="56" y="162">Connect</text>
-              </g>
-              <g class="node-map__node" tabindex="0" role="button" aria-label="Soar Studio node" data-note="AI-powered creation — design, video, websites, presentations, and brand tools.">
-                <circle cx="56" cy="73" r="22" />
-                <text x="56" y="77">Studio</text>
-              </g>
-            </svg>
-            <p class="node-map__note mono">Soar is the umbrella — six apps, one AI core.</p>
-          </div>
-
-          <div class="node-map node-map--sirat reveal" data-default="Sirat is the path — three pillars, fifteen apps.">
-            <svg viewBox="0 0 240 200" class="node-map__svg" role="img" aria-label="Sirat systems map">
-              <line x1="120" y1="100" x2="120" y2="34" class="node-map__line" />
-              <line x1="120" y1="100" x2="48" y2="158" class="node-map__line" />
-              <line x1="120" y1="100" x2="192" y2="158" class="node-map__line" />
-              <circle cx="120" cy="100" r="28" class="node-map__center" />
-              <text x="120" y="104" class="node-map__center-text">Sirat</text>
-
-              <g class="node-map__node" tabindex="0" role="button" aria-label="Sirat Foundation node" data-note="Sirat One, Sirat AI, Sirat Cloud, Sirat Developers, Sirat Research — the platform layer everything else runs on.">
-                <circle cx="120" cy="34" r="22" />
-                <text x="120" y="38">Found.</text>
-              </g>
-              <g class="node-map__node" tabindex="0" role="button" aria-label="Sirat Learning node" data-note="Sirat Quran, Sirat Education, Sirat Schools, Sirat Kids, Sirat Family — where people actually learn.">
-                <circle cx="48" cy="158" r="22" />
-                <text x="48" y="162">Learn</text>
-              </g>
-              <g class="node-map__node" tabindex="0" role="button" aria-label="Sirat Impact node" data-note="Sirat Mosques, Sirat Community, Sirat Finance, Sirat Studio, Sirat Foundation — where the suite reaches outward.">
-                <circle cx="192" cy="158" r="22" />
-                <text x="192" y="162">Impact</text>
-              </g>
-            </svg>
-            <p class="node-map__note mono">Sirat is the path — three pillars, fifteen apps.</p>
-          </div>
-        </div>
-
-        <div class="arch reveal">
-          <div class="arch__head">
-            <h3>Platform architecture</h3>
-            <p>Three layers, both ecosystems — apps sit on intelligence, intelligence sits on platform.</p>
-          </div>
-
-          <div class="arch__row">
-            <span class="arch__label mono">Apps</span>
-            <div class="arch__chips">
-              <span class="chip chip--soar">Soar Work</span>
-              <span class="chip chip--soar">Soar Business</span>
-              <span class="chip chip--soar">Soar Life</span>
-              <span class="chip chip--soar">Soar Connect</span>
-              <span class="chip chip--soar">Soar Studio</span>
-              <span class="chip chip--sirat">Sirat Learning</span>
-              <span class="chip chip--sirat">Sirat Community &amp; Impact</span>
-            </div>
-          </div>
-
-          <div class="arch__connector" aria-hidden="true"></div>
-
-          <div class="arch__row">
-            <span class="arch__label mono">Intelligence</span>
-            <div class="arch__chips">
-              <span class="chip chip--soar">Soar AI</span>
-              <span class="chip chip--sirat">Sirat AI</span>
-            </div>
-          </div>
-
-          <div class="arch__connector" aria-hidden="true"></div>
-
-          <div class="arch__row">
-            <span class="arch__label mono">Platform</span>
-            <div class="arch__chips">
-              <span class="chip chip--sirat">Sirat One</span>
-              <span class="chip chip--sirat">Sirat Cloud</span>
-              <span class="chip chip--sirat">Sirat Developers</span>
-              <span class="chip chip--sirat">Sirat Research</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="focus" id="focus">
-      <div class="focus__inner">
-        <p class="mono eyebrow reveal">03 — Focus Areas</p>
-        <h2 class="reveal">Where I spend my time</h2>
-
-        <div class="focus__grid">
-          <div class="focus-card reveal">
-            <span class="mono">01</span>
-            <h3>AI &amp; Automation</h3>
-            <p>Designing assistants and agents that reduce decisions to the ones that actually matter.</p>
-          </div>
-          <div class="focus-card reveal">
-            <span class="mono">02</span>
-            <h3>Product &amp; UX</h3>
-            <p>Shipping interfaces that feel obvious in hindsight — no manual required.</p>
-          </div>
-          <div class="focus-card reveal">
-            <span class="mono">03</span>
-            <h3>Islamic Ed-Tech</h3>
-            <p>Building learning tools rooted in traditional knowledge, made for how people actually study today.</p>
-          </div>
-          <div class="focus-card reveal">
-            <span class="mono">04</span>
-            <h3>Community Tools</h3>
-            <p>Software that helps mosques and communities coordinate, not just broadcast.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="snapshot" id="snapshot">
-      <p class="mono eyebrow reveal">04 — Snapshot</p>
-      <h2 class="reveal">A quick read</h2>
-      <p class="snapshot__sub reveal">
-        Self-estimated, not analytics — a rough picture of where time goes and where each product currently stands.
-      </p>
-
-      <div class="viz-grid reveal">
-        <div class="viz-card">
-          <div class="viz-card__head">
-            <span class="viz-card__title">Focus split</span>
-            <button class="viz-table-toggle" type="button" data-table-for="focusTable">View as table</button>
-          </div>
-          <div class="segbar" role="img" aria-label="Focus split across four areas: AI and Automation 34 percent, Product and UX 26 percent, Islamic Ed-Tech 24 percent, Community Tools 16 percent">
-            <div class="segbar__seg segbar__seg--1" style="width: 34%"></div>
-            <div class="segbar__seg segbar__seg--2" style="width: 26%"></div>
-            <div class="segbar__seg segbar__seg--3" style="width: 24%"></div>
-            <div class="segbar__seg segbar__seg--4" style="width: 16%"></div>
-          </div>
-          <ul class="legend">
-            <li><span class="legend__dot legend__dot--1"></span>AI &amp; Automation <span class="legend__val">34%</span></li>
-            <li><span class="legend__dot legend__dot--2"></span>Product &amp; UX <span class="legend__val">26%</span></li>
-            <li><span class="legend__dot legend__dot--3"></span>Islamic Ed-Tech <span class="legend__val">24%</span></li>
-            <li><span class="legend__dot legend__dot--4"></span>Community Tools <span class="legend__val">16%</span></li>
+    <section class="pricing section" id="pricing">
+      <div class="section-label"><span>03</span><p>Access tiers</p></div>
+      <div class="pricing-head"><h2 class="headline">Two systems.<br /><em>However you want in.</em></h2><p>Planned pricing for Soar and Sirat. Early access opens as each system leaves formation.</p></div>
+      <div class="pricing-grid">
+        <article class="pricing-card tilt-card">
+          <div class="pricing-top"><p class="eyebrow">Free</p><div class="pricing-price"><span>$0</span><small>/ forever</small></div><p class="pricing-copy">Explore either system on your own.</p></div>
+          <ul class="pricing-list">
+            <li>Full access to Soar <b>or</b> Sirat, used separately</li>
+            <li>Not bundled — no combined mode</li>
+            <li>1 platform (web)</li>
+            <li>Community support</li>
           </ul>
-          <table class="viz-table" id="focusTable" hidden>
-            <thead><tr><th>Area</th><th>Share</th></tr></thead>
-            <tbody>
-              <tr><td>AI &amp; Automation</td><td>34%</td></tr>
-              <tr><td>Product &amp; UX</td><td>26%</td></tr>
-              <tr><td>Islamic Ed-Tech</td><td>24%</td></tr>
-              <tr><td>Community Tools</td><td>16%</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="viz-card">
-          <div class="viz-card__head">
-            <span class="viz-card__title">Capability depth</span>
-            <span class="viz-card__note">Self-rated / 10</span>
-          </div>
-          <ul class="barlist">
-            <li><span class="barlist__label">Product &amp; UX</span><span class="barlist__track"><span class="barlist__fill" style="width: 90%"></span></span><span class="barlist__val">9</span></li>
-            <li><span class="barlist__label">AI &amp; Automation</span><span class="barlist__track"><span class="barlist__fill" style="width: 80%"></span></span><span class="barlist__val">8</span></li>
-            <li><span class="barlist__label">Frontend Eng.</span><span class="barlist__track"><span class="barlist__fill" style="width: 80%"></span></span><span class="barlist__val">8</span></li>
-            <li><span class="barlist__label">Islamic Ed-Tech</span><span class="barlist__track"><span class="barlist__fill" style="width: 70%"></span></span><span class="barlist__val">7</span></li>
-            <li><span class="barlist__label">Backend &amp; Infra</span><span class="barlist__track"><span class="barlist__fill" style="width: 70%"></span></span><span class="barlist__val">7</span></li>
-            <li><span class="barlist__label">Community Ops</span><span class="barlist__track"><span class="barlist__fill" style="width: 60%"></span></span><span class="barlist__val">6</span></li>
+          <a class="button button-quiet magnetic pricing-cta" href="#contact">Join the waitlist <span>↗</span></a>
+        </article>
+        <article class="pricing-card pricing-card--pro tilt-card">
+          <span class="pricing-badge">Most requested</span>
+          <div class="pricing-top"><p class="eyebrow">Pro</p><div class="pricing-price"><span>$14</span><small>/ month</small></div><p class="pricing-copy">Run Soar and Sirat together.</p></div>
+          <ul class="pricing-list">
+            <li>Everything in Free</li>
+            <li>Soar + Sirat combo mode, fully integrated</li>
+            <li>Multi-platform — web, iOS, Android, desktop</li>
+            <li>Usage limits apply (monthly actions &amp; storage)</li>
+            <li>Priority support</li>
           </ul>
-        </div>
-
-        <div class="viz-card viz-card--wide">
-          <div class="viz-card__head">
-            <span class="viz-card__title">Roadmap status</span>
-            <span class="viz-card__note">Soar apps + Sirat pillars · Jul 2026</span>
-          </div>
-          <ul class="roadmap">
-            <li><span class="roadmap__name">Soar AI</span><span class="roadmap__status"><span class="roadmap__dot roadmap__dot--building"></span>Building</span></li>
-            <li><span class="roadmap__name">Soar Work</span><span class="roadmap__status"><span class="roadmap__dot roadmap__dot--building"></span>Building</span></li>
-            <li><span class="roadmap__name">Soar Business</span><span class="roadmap__status"><span class="roadmap__dot roadmap__dot--idea"></span>Idea</span></li>
-            <li><span class="roadmap__name">Soar Life</span><span class="roadmap__status"><span class="roadmap__dot roadmap__dot--idea"></span>Idea</span></li>
-            <li><span class="roadmap__name">Soar Connect</span><span class="roadmap__status"><span class="roadmap__dot roadmap__dot--idea"></span>Idea</span></li>
-            <li><span class="roadmap__name">Soar Studio</span><span class="roadmap__status"><span class="roadmap__dot roadmap__dot--building"></span>Building</span></li>
-            <li><span class="roadmap__name">Sirat · Foundation</span><span class="roadmap__status"><span class="roadmap__dot roadmap__dot--building"></span>Building</span></li>
-            <li><span class="roadmap__name">Sirat · Learning</span><span class="roadmap__status"><span class="roadmap__dot roadmap__dot--building"></span>Building</span></li>
-            <li><span class="roadmap__name">Sirat · Community &amp; Impact</span><span class="roadmap__status"><span class="roadmap__dot roadmap__dot--idea"></span>Idea</span></li>
+          <a class="button button-primary magnetic pricing-cta" href="#contact">Get early access <span>↗</span></a>
+        </article>
+        <article class="pricing-card tilt-card">
+          <div class="pricing-top"><p class="eyebrow">Premium</p><div class="pricing-price"><span>$29</span><small>/ month</small></div><p class="pricing-copy">Everything. No limits watching.</p></div>
+          <ul class="pricing-list">
+            <li>Everything in Pro</li>
+            <li>Unlimited usage across both systems</li>
+            <li>Every platform, first access to new systems</li>
+            <li>Dedicated support channel</li>
           </ul>
-        </div>
+          <a class="button button-quiet magnetic pricing-cta" href="#contact">Go premium <span>↗</span></a>
+        </article>
+      </div>
+      <p class="pricing-footnote">Pricing reflects current plans and may change before either system leaves formation.</p>
+    </section>
 
-        <div class="viz-card viz-card--wide">
-          <div class="viz-card__head">
-            <span class="viz-card__title">Recently on GitHub</span>
-            <a class="viz-card__link" href="https://github.com/samiryasar14" target="_blank" rel="noopener noreferrer">View profile <span>→</span></a>
-          </div>
-          <ul class="gh-activity" id="ghActivity">
-            <li class="gh-activity__loading">Loading recent activity…</li>
-          </ul>
-        </div>
+    <section class="signal section" id="signal">
+      <div class="signal-glow" aria-hidden="true"></div>
+      <div class="signal-copy"><p class="eyebrow">04 / Signal strength</p><h2 class="headline split-reveal">A builder's work is not a list of features.<br /><em>It is a point of view.</em></h2></div>
+      <div class="metric-grid">
+        <div class="metric reveal-up"><span>DESIGN LANGUAGE</span><strong data-count="100" data-suffix="%">0%</strong><p>Intentional, direct, human.</p></div>
+        <div class="metric reveal-up"><span>BUILD MODE</span><strong data-count="24" data-suffix="/7">0/7</strong><p>Always observing the edge.</p></div>
+        <div class="metric reveal-up"><span>HORIZON</span><strong data-count="2" data-suffix=" systems">0 systems</strong><p>Being shaped with care.</p></div>
+      </div>
+      <div class="signal-console tilt-card"><div class="console-top"><span>LIVE / PRACTICE</span><span class="console-light"></span><span>NOISE FLOOR -72 DB</span></div><svg viewBox="0 0 1200 220" preserveAspectRatio="none" aria-hidden="true"><path class="wave wave--ghost" d="M0 110 C35 20 58 200 90 110 S150 30 185 110 S250 190 280 110 S340 60 375 110 S435 150 470 110 S535 15 570 110 S630 195 675 110 S740 35 770 110 S830 185 870 110 S930 50 965 110 S1030 170 1060 110 S1120 30 1200 110"/><path class="wave wave--live" d="M0 110 C35 85 58 135 90 110 S150 90 185 110 S250 130 280 110 S340 98 375 110 S435 124 470 110 S535 82 570 110 S630 140 675 110 S740 93 770 110 S830 127 870 110 S930 96 965 110 S1030 124 1060 110 S1120 88 1200 110"/></svg><div class="console-bottom"><span>IDEA</span><span>FORM</span><span>MOTION</span><span>IMPACT</span></div></div>
+    </section>
+
+    <section class="journal section" id="journal">
+      <div class="section-label"><span>05</span><p>From the logbook</p></div>
+      <div class="journal-head"><h2 class="headline">Notes from<br /><em>the edge.</em></h2><a href="roadmap.html" class="button button-quiet magnetic">View roadmap <span>↗</span></a></div>
+      <div class="journal-grid">
+        <a class="journal-card journal-card--main tilt-card" href="roadmap.html"><div class="journal-visual"><span class="journal-ring"></span><span class="journal-date">JUL / 2026</span></div><div><p class="eyebrow">Trajectory</p><h3>Building quietly. Moving deliberately.</h3><span class="text-link">Read the roadmap <b>↗</b></span></div></a>
+        <a class="journal-card tilt-card" href="about.html"><div class="journal-visual journal-visual--line"><span></span></div><div><p class="eyebrow">Origin</p><h3>Why these systems need to exist.</h3><span class="text-link">Read the story <b>↗</b></span></div></a>
       </div>
     </section>
 
-    <section class="teasers">
-      <a href="soar.html" class="teaser-card teaser-card--soar reveal">
-        <div class="teaser-card__bg" aria-hidden="true"></div>
-        <p class="mono c-soar">05 — Product Suite</p>
-        <h3>Soar</h3>
-        <p>Six apps — AI, Work, Business, Life, Connect, Studio. Full breakdown of all six.</p>
-        <span class="link-arrow c-soar-hover">Explore Soar <span>→</span></span>
-      </a>
-      <a href="sirat.html" class="teaser-card teaser-card--sirat reveal">
-        <div class="teaser-card__bg" aria-hidden="true"></div>
-        <p class="mono c-sirat">06 — Product Suite</p>
-        <h3>Sirat</h3>
-        <p>Fifteen apps across three pillars — Foundation, Learning, and Community &amp; Impact.</p>
-        <span class="link-arrow c-sirat-hover">Explore Sirat <span>→</span></span>
-      </a>
-    </section>
-
-    <section class="contact" id="contact">
-      <p class="mono eyebrow reveal">07 — Get in touch</p>
-      <h2 class="reveal">Let's build<br />something.</h2>
-      <a class="contact__email reveal magnetic" href="mailto:samir.yasar.usa@gmail.com">
-        samir.yasar.usa@gmail.com
-      </a>
-      <div class="contact__social reveal">
-        <a href="https://github.com/samiryasar14" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" /></svg>
-        </a>
-      </div>
-      <form class="contact__form reveal" id="contactForm" novalidate>
-        <div class="contact__field">
-          <label for="contactName">Name</label>
-          <input id="contactName" name="name" type="text" placeholder="Your name" required autocomplete="name" />
-        </div>
-        <div class="contact__field">
-          <label for="contactEmail">Email</label>
-          <input id="contactEmail" name="email" type="email" placeholder="you@example.com" required autocomplete="email" />
-        </div>
-        <div class="contact__field">
-          <label for="contactMessage">Message</label>
-          <textarea id="contactMessage" name="message" placeholder="What's on your mind?" required></textarea>
-        </div>
-        <button class="contact__submit" type="submit">Send message</button>
-        <span class="contact__status" id="contactStatus" aria-live="polite"></span>
-      </form>
+    <section class="contact section" id="contact">
+      <div class="contact-halo" aria-hidden="true"></div><p class="eyebrow">06 / Open channel</p><h2 class="display split-reveal">Let's make<br />something <em>matter.</em></h2><p class="contact-copy reveal-up">If you are building toward a more considered future, I would like to hear what you see.</p><a href="mailto:samir.yasar.usa@gmail.com" class="contact-email magnetic">samir.yasar.usa@gmail.com <span>↗</span></a>
     </section>
   </main>
 
-  <footer class="footer">
-    <span class="nav__mark nav__mark--sm"><img src="assets/logo_favicon.png" alt="Samir Yasar logo" /></span>
-    <p>&copy; <span id="year"></span> Samir Yasar</p>
-  </footer>
+  <footer class="footer"><a class="brand" href="#top"><span class="brand-mark">S</span><span>Samir Yasar</span></a><p>Independent builder of future systems.</p><div><a href="https://github.com/samiryasar14" target="_blank" rel="noreferrer">GitHub</a><a href="#top">Back to top ↑</a></div></footer>
 
-  <button class="to-top" id="toTop" type="button" aria-label="Back to top">
-    <svg viewBox="0 0 24 24" fill="none"><path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
-  </button>
-
-  <div class="shortcuts-overlay" id="shortcutsOverlay" hidden>
-    <div class="shortcuts-backdrop" id="shortcutsBackdrop"></div>
-    <div class="shortcuts-panel" role="dialog" aria-modal="true" aria-label="Keyboard shortcuts">
-      <div class="shortcuts-head">
-        <h3>Keyboard shortcuts</h3>
-        <button class="shortcuts-close" id="shortcutsClose" type="button" aria-label="Close">&times;</button>
-      </div>
-      <div class="shortcuts-body">
-        <div class="shortcut-row"><kbd>Ctrl</kbd> + <kbd>K</kbd><span>Open command palette</span></div>
-        <div class="shortcut-row"><kbd>?</kbd><span>Show this help</span></div>
-        <div class="shortcut-row"><kbd>T</kbd><span>Toggle theme</span></div>
-        <div class="shortcut-row"><kbd>Esc</kbd><span>Close any overlay</span></div>
-        <div class="shortcut-row"><kbd>↑</kbd> / <kbd>↓</kbd><span>Navigate command palette</span></div>
-        <div class="shortcut-row"><kbd>Enter</kbd><span>Select in command palette</span></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="reading-bar" id="readingBar" aria-hidden="true">
-    <span class="reading-bar__label" id="readingLabel"></span>
-  </div>
-
-  <button class="sam-launcher" id="samLauncher" type="button" aria-label="Open Ask Sam assistant">
-    <svg viewBox="0 0 24 24" fill="none"><path d="M4 5.5C4 4.67 4.67 4 5.5 4h13c.83 0 1.5.67 1.5 1.5v10c0 .83-.67 1.5-1.5 1.5H9l-4 3.5v-3.5H5.5C4.67 16.5 4 15.83 4 15v-9.5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" /></svg>
-    <span class="sam-dot"></span>
-  </button>
-
-  <div class="sam-panel" id="samPanel" aria-hidden="true">
-    <div class="sam-panel__head">
-      <div class="sam-panel__avatar">S</div>
-      <div>
-        <div class="sam-panel__title">Ask Sam</div>
-        <div class="sam-panel__subtitle">Local guide · Soar &amp; Sirat</div>
-      </div>
-      <button class="sam-panel__close" id="samClose" type="button" aria-label="Close">&times;</button>
-    </div>
-    <div class="sam-panel__body" id="samBody" aria-live="polite"></div>
-    <div class="sam-chips" id="samChips">
-      <button class="sam-chip" type="button">What is Soar?</button>
-      <button class="sam-chip" type="button">What is Sirat?</button>
-      <button class="sam-chip" type="button">How do I contact Samir?</button>
-    </div>
-    <form class="sam-panel__form" id="samForm">
-      <input class="sam-panel__input" id="samInput" type="text" placeholder="Ask about Soar or Sirat…" autocomplete="off" />
-      <button class="sam-panel__send" type="submit" aria-label="Send">
-        <svg viewBox="0 0 24 24" fill="none"><path d="M4 12h15M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
-      </button>
-    </form>
-  </div>
-
-  <script src="js/script.js"></script>
-  <script src="js/chat.js"></script>
-  <script src="js/github.js"></script>
+  <script src="js/vendor/gsap.min.js"></script><script src="js/vendor/ScrollTrigger.min.js"></script><script src="js/vendor/lenis.min.js"></script><script src="js/vendor/split-type.min.js"></script>
+  <script src="js/scroll.js"></script><script src="js/cursor.js"></script><script src="js/navbar.js"></script><script src="js/animations.js"></script><script src="js/main.js"></script><script src="js/audio.js"></script><script type="module" src="js/universe.js"></script>
 </body>
 </html>

@@ -1,0 +1,15 @@
+@keyframes loader-progress { to { transform: scaleX(1); } }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes spin-reverse { to { transform: rotate(-360deg); } }
+@keyframes float { 50% { transform: translateY(-16px); } }
+@keyframes pulse { 50% { opacity: .45; transform: scale(.88); } }
+@keyframes drift { 50% { transform: translate3d(3%, -4%, 0) scale(1.08); } }
+@keyframes scan { to { transform: translateY(230px); } }
+@keyframes wave { to { stroke-dashoffset: -620; } }
+@keyframes shimmer { to { background-position: 200% center; } }
+@keyframes line { to { stroke-dashoffset: 0; } }
+
+.reveal-up { opacity: 0; transform: translateY(28px); }
+.split-reveal { visibility: hidden; }
+.char { transform: translateY(105%); display: inline-block; will-change: transform; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; } .reveal-up, .split-reveal { opacity: 1; visibility: visible; transform: none; } .char { transform: none; } }
