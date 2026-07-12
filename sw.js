@@ -1,12 +1,12 @@
-const CACHE_NAME = "samir-yasar-v3";
+const CACHE_NAME = "samir-yasar-v4";
 const ASSETS = [
   "/",
   "/index.html",
   "/soar.html",
   "/sirat.html",
+  "/about.html",
+  "/roadmap.html",
   "/404.html",
-  "/css/style.css",
-  "/js/script.js",
   "/js/chat.js",
   "/js/github.js",
   "/js/main.js",
@@ -18,6 +18,7 @@ const ASSETS = [
   "/css/variables.css",
   "/css/animations.css",
   "/css/styles.css",
+  "/css/content.css",
   "/assets/logo_favicon.png",
   "/manifest.webmanifest",
 ];

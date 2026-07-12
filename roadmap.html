@@ -3,229 +3,161 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Samir Yasar</title>
   <meta name="description" content="The roadmap for Soar and Sirat — from the first line of code in 2025 to a twenty-one app universe." />
-  <meta name="theme-color" content="#0b0916" />
+  <meta name="theme-color" content="#08090e" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Roadmap — Samir Yasar" />
   <meta property="og:description" content="From the first line of code to a twenty-one app universe — the Soar & Sirat flight plan." />
-  <meta property="og:url" content="https://samiryasar.com/roadmap.html" />
-  <meta property="og:image" content="https://samiryasar.com/assets/logo_favicon.png" />
+  <meta property="og:url" content="https://sysamiryasar.github.io/roadmap.html" />
+  <meta property="og:image" content="https://sysamiryasar.github.io/assets/logo_favicon.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Roadmap — Samir Yasar" />
   <meta name="twitter:description" content="From the first line of code to a twenty-one app universe — the Soar & Sirat flight plan." />
-  <meta name="twitter:image" content="https://samiryasar.com/assets/logo_favicon.png" />
+  <meta name="twitter:image" content="https://sysamiryasar.github.io/assets/logo_favicon.png" />
+  <title>Roadmap | Samir Yasar</title>
   <link rel="icon" type="image/png" href="assets/logo_favicon.png" />
   <link rel="apple-touch-icon" href="assets/logo_favicon.png" />
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/content.css" />
 </head>
-<body>
-  <a class="skip-link" href="#main-content">Skip to content</a>
-  <canvas class="bg-canvas" id="bgCanvas" aria-hidden="true"></canvas>
-  <div class="cyber-grid" aria-hidden="true"></div>
-  <div class="progress-bar" id="progressBar" aria-hidden="true"></div>
-  <div class="grain" aria-hidden="true"></div>
-  <div class="scanlines" aria-hidden="true"></div>
-  <div class="glow" id="glow" aria-hidden="true"></div>
+<body class="antialiased">
+  <div class="site-loader" id="siteLoader" aria-hidden="true">
+    <div class="loader-mark"><span></span><span></span><span></span></div>
+    <p>INITIALIZING / 2026</p><div class="loader-track"><i></i></div>
+  </div>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+  <canvas id="universe" aria-hidden="true"></canvas>
+  <div class="cosmic-vignette" aria-hidden="true"></div>
 
-  <header class="nav" id="nav">
-    <div class="nav__inner">
-      <a href="index.html" class="nav__mark"><img src="assets/logo_favicon.png" alt="Samir Yasar logo" /></a>
-      <nav class="nav__links" id="navLinks">
-        <a href="index.html#about"><span>01</span>About</a>
-        <a href="index.html#map"><span>02</span>Map</a>
-        <a href="index.html#focus"><span>03</span>Focus</a>
-        <a href="index.html#snapshot"><span>04</span>Snapshot</a>
-        <a href="soar.html"><span>05</span>Soar</a>
-        <a href="sirat.html"><span>06</span>Sirat</a>
-        <a href="about.html"><span>07</span>Story</a>
-        <a href="roadmap.html" class="is-current"><span>08</span>Roadmap</a>
-        <a href="index.html#contact"><span>09</span>Contact</a>
-      </nav>
-      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme">
-        <svg class="icon-moon" viewBox="0 0 24 24" fill="none"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" /></svg>
-        <svg class="icon-sun" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.5" /><path d="M12 2.5v2M12 19.5v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2.5 12h2M19.5 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /></svg>
-      </button>
-      <button class="cmdk-btn" id="cmdkBtn" type="button" aria-haspopup="dialog">
-        <span>Jump to</span><kbd>Ctrl K</kbd>
-      </button>
-      <button class="shortcuts-btn" id="shortcutsBtn" type="button" aria-haspopup="dialog" aria-label="Keyboard shortcuts">?</button>
-      <button class="nav__toggle" id="navToggle" type="button" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span>
-      </button>
-    </div>
+  <header class="nav-shell" id="navbar">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand magnetic" href="index.html#top" aria-label="Samir Yasar home"><span class="brand-mark">S</span><span>Samir Yasar</span></a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html#top">Home</a><a href="about.html">Story</a><a href="roadmap.html">Roadmap</a><a href="index.html#contact">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <button class="icon-btn magnetic audio-toggle is-muted" id="audioToggle" type="button" aria-label="Play ambient sound">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 5V4L8 9H4z"></path><path class="audio-toggle__wave" d="M16.5 8.5a5 5 0 0 1 0 7"></path><path class="audio-toggle__wave audio-toggle__wave--far" d="M19 6a8.5 8.5 0 0 1 0 12"></path><line class="audio-toggle__slash" x1="3" y1="21" x2="21" y2="3"></line></svg>
+        </button>
+        <button class="icon-btn magnetic" id="searchButton" aria-label="Open site navigation"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="5.8"></circle><path d="m16 16 4.2 4.2"></path></svg></button>
+        <a class="nav-cta magnetic" href="index.html#contact"><span>Start a conversation</span><i></i></a>
+        <button class="menu-btn" id="menuButton" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+      </div>
+    </nav>
   </header>
 
-  <div class="cmdk" id="cmdk" hidden>
-    <div class="cmdk__backdrop" id="cmdkBackdrop"></div>
-    <div class="cmdk__panel" role="dialog" aria-modal="true" aria-label="Jump to section">
-      <input class="cmdk__input" id="cmdkInput" type="text" placeholder="Jump to a section…" autocomplete="off" />
-      <ul class="cmdk__list" id="cmdkList">
-        <li data-href="index.html" class="cmdk__item is-active" tabindex="0"><span>Home</span><span class="mono">Top</span></li>
-        <li data-href="index.html#about" class="cmdk__item" tabindex="0"><span>About</span><span class="mono">01</span></li>
-        <li data-href="index.html#map" class="cmdk__item" tabindex="0"><span>Systems Map</span><span class="mono">02</span></li>
-        <li data-href="index.html#focus" class="cmdk__item" tabindex="0"><span>Focus Areas</span><span class="mono">03</span></li>
-        <li data-href="index.html#snapshot" class="cmdk__item" tabindex="0"><span>Snapshot</span><span class="mono">04</span></li>
-        <li data-href="soar.html" class="cmdk__item" tabindex="0"><span>Soar</span><span class="mono">05</span></li>
-        <li data-href="sirat.html" class="cmdk__item" tabindex="0"><span>Sirat</span><span class="mono">06</span></li>
-        <li data-href="about.html" class="cmdk__item" tabindex="0"><span>Story</span><span class="mono">07</span></li>
-        <li data-href="roadmap.html" class="cmdk__item" tabindex="0"><span>Roadmap</span><span class="mono">08</span></li>
-        <li data-href="index.html#contact" class="cmdk__item" tabindex="0"><span>Contact</span><span class="mono">09</span></li>
-      </ul>
+  <div class="command-panel" id="commandPanel" aria-hidden="true">
+    <button class="command-backdrop" data-close-command aria-label="Close navigation"></button>
+    <div class="command-content" role="dialog" aria-modal="true" aria-label="Site navigation">
+      <p class="eyebrow">Navigate the field</p>
+      <a href="index.html#vision" data-command-link>Vision <b>01</b></a><a href="index.html#systems" data-command-link>Systems <b>02</b></a><a href="index.html#pricing" data-command-link>Pricing <b>03</b></a><a href="index.html#signal" data-command-link>Signal <b>04</b></a><a href="index.html#journal" data-command-link>Journal <b>05</b></a><a href="about.html" data-command-link>Story <b>06</b></a><a href="roadmap.html" data-command-link>Roadmap <b>07</b></a><a href="index.html#contact" data-command-link>Contact <b>08</b></a>
     </div>
   </div>
 
-  <main id="main-content">
-    <nav class="breadcrumb reveal" aria-label="Breadcrumb">
-      <a href="index.html">Home</a>
-      <span>/</span>
-      <span>Roadmap</span>
-    </nav>
+  <main id="top">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>Roadmap</span></nav>
 
-    <section class="page-hero">
-      <p class="mono eyebrow reveal">08 — The Journey</p>
-      <h1 class="reveal">Roadmap</h1>
-      <p class="page-hero__sub reveal">
-        From the first line of code to a twenty-one-app universe. Here's the flight plan —
-        <span class="mono">🚀</span> marks where we are right now.
-      </p>
+    <section class="page-hero section">
+      <p class="eyebrow reveal-up">08 / The journey</p>
+      <h1 class="reveal-up">Roadmap</h1>
+      <p class="page-hero__sub reveal-up">From the first line of code to a twenty-one-app universe. Here's the flight plan — <span class="mono">🚀</span> marks where we are right now.</p>
     </section>
 
-    <section class="roadmap-timeline">
-      <div class="roadmap-timeline__track">
-        <div class="roadmap-rocket reveal" aria-hidden="true">
-          <svg viewBox="0 0 24 28" fill="none">
-            <defs>
-              <linearGradient id="rocketGrad" x1="12" y1="4" x2="12" y2="26" gradientUnits="userSpaceOnUse">
-                <stop offset="0" stop-color="#33e6ff" />
-                <stop offset="1" stop-color="#b264ff" />
-              </linearGradient>
-            </defs>
-            <path d="M12 26c-2.7-2-4.1-6.9-4.1-11.5C7.9 9.8 9.4 5.3 12 3.4c2.6 1.9 4.1 6.4 4.1 11.1 0 4.6-1.4 9.5-4.1 11.5Z" fill="url(#rocketGrad)" />
-            <circle cx="12" cy="12" r="1.9" fill="#0a0714" opacity="0.85" />
-            <path d="M8.4 11 5 6.2l3.3 1.4L9.9 11Z" fill="#b264ff" />
-            <path d="M15.6 11 19 6.2l-3.3 1.4L14.1 11Z" fill="#33e6ff" />
-            <path d="M9.6 4.6 12 1l2.4 3.6c-1.6-.7-3.2-.7-4.8 0Z" fill="#ffd166" opacity="0.9" />
-          </svg>
+    <section class="roadmap-timeline section">
+      <div class="roadmap-track">
+        <svg class="roadmap-rocket" viewBox="0 0 24 28" fill="none" aria-hidden="true">
+          <defs><linearGradient id="rocketGrad" x1="12" y1="4" x2="12" y2="26" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#72d4ff" /><stop offset="1" stop-color="#ae84ff" /></linearGradient></defs>
+          <path d="M12 26c-2.7-2-4.1-6.9-4.1-11.5C7.9 9.8 9.4 5.3 12 3.4c2.6 1.9 4.1 6.4 4.1 11.1 0 4.6-1.4 9.5-4.1 11.5Z" fill="url(#rocketGrad)" />
+          <circle cx="12" cy="12" r="1.9" fill="#08090e" opacity="0.85" />
+          <path d="M8.4 11 5 6.2l3.3 1.4L9.9 11Z" fill="#ae84ff" />
+          <path d="M15.6 11 19 6.2l-3.3 1.4L14.1 11Z" fill="#72d4ff" />
+          <path d="M9.6 4.6 12 1l2.4 3.6c-1.6-.7-3.2-.7-4.8 0Z" fill="#f5b942" opacity="0.9" />
+        </svg>
+
+        <div class="roadmap-stop roadmap-stop--done reveal-up">
+          <span class="roadmap-stop-dot">✓</span>
+          <p class="roadmap-stop-date">Late 2025</p>
+          <h3 class="roadmap-stop-title">The idea<span class="roadmap-stop-badge">Done</span></h3>
+          <p class="roadmap-stop-desc">Two ecosystems sketched out: an AI toolkit that actually helps, and a suite built for Islamic learning and community life.</p>
         </div>
 
-        <div class="roadmap-stop roadmap-stop--done reveal">
-          <span class="roadmap-stop__dot">✓</span>
-          <p class="roadmap-stop__date mono">Late 2025</p>
-          <h3 class="roadmap-stop__title">The idea<span class="roadmap-stop__badge">Done</span></h3>
-          <p class="roadmap-stop__desc">Two ecosystems sketched out: an AI toolkit that actually helps, and a suite built for Islamic learning and community life.</p>
+        <div class="roadmap-stop roadmap-stop--done reveal-up">
+          <span class="roadmap-stop-dot">✓</span>
+          <p class="roadmap-stop-date">Jan 2026</p>
+          <h3 class="roadmap-stop-title">First lines of code<span class="roadmap-stop-badge">Done</span></h3>
+          <p class="roadmap-stop-desc">Soar and Sirat repos created. Lots of false starts, a lot of deleted code, and the first real architecture.</p>
         </div>
 
-        <div class="roadmap-stop roadmap-stop--done reveal">
-          <span class="roadmap-stop__dot">✓</span>
-          <p class="roadmap-stop__date mono">Jan 2026</p>
-          <h3 class="roadmap-stop__title">First lines of code<span class="roadmap-stop__badge">Done</span></h3>
-          <p class="roadmap-stop__desc">Soar and Sirat repos created. Lots of false starts, a lot of deleted code, and the first real architecture.</p>
+        <div class="roadmap-stop roadmap-stop--done reveal-up">
+          <span class="roadmap-stop-dot">✓</span>
+          <p class="roadmap-stop-date">Apr 2026</p>
+          <h3 class="roadmap-stop-title">Soar AI alpha<span class="roadmap-stop-badge">Done</span></h3>
+          <p class="roadmap-stop-desc">The first assistant flows come together — chat, tasks, and daily briefings, running end to end for the first time.</p>
         </div>
 
-        <div class="roadmap-stop roadmap-stop--done reveal">
-          <span class="roadmap-stop__dot">✓</span>
-          <p class="roadmap-stop__date mono">Apr 2026</p>
-          <h3 class="roadmap-stop__title">Soar AI alpha<span class="roadmap-stop__badge">Done</span></h3>
-          <p class="roadmap-stop__desc">The first assistant flows come together — chat, tasks, and daily briefings, running end to end for the first time.</p>
+        <div class="roadmap-stop roadmap-stop--current reveal-up">
+          <span class="roadmap-stop-dot">🚀</span>
+          <p class="roadmap-stop-date">Jul 2026 — You are here</p>
+          <h3 class="roadmap-stop-title">Building now<span class="roadmap-stop-badge">Building</span></h3>
+          <p class="roadmap-stop-desc">Soar AI, Soar Work, and Soar Studio are all actively in progress, alongside Sirat's Foundation and Learning pillars.</p>
         </div>
 
-        <div class="roadmap-stop roadmap-stop--current reveal">
-          <span class="roadmap-stop__dot">🚀</span>
-          <p class="roadmap-stop__date mono">Jul 2026 — You are here</p>
-          <h3 class="roadmap-stop__title">Building now<span class="roadmap-stop__badge">Building</span></h3>
-          <p class="roadmap-stop__desc">Soar AI, Soar Work, and Soar Studio are all actively in progress, alongside Sirat's Foundation and Learning pillars.</p>
+        <div class="roadmap-stop reveal-up">
+          <span class="roadmap-stop-dot">○</span>
+          <p class="roadmap-stop-date">Late 2026</p>
+          <h3 class="roadmap-stop-title">First public betas<span class="roadmap-stop-badge">Planned</span></h3>
+          <p class="roadmap-stop-desc">Soar Work and Sirat Quran open up to early testers — the first apps real people outside my circle get to use.</p>
         </div>
 
-        <div class="roadmap-stop reveal">
-          <span class="roadmap-stop__dot">○</span>
-          <p class="roadmap-stop__date mono">Late 2026</p>
-          <h3 class="roadmap-stop__title">First public betas<span class="roadmap-stop__badge">Planned</span></h3>
-          <p class="roadmap-stop__desc">Soar Work and Sirat Quran open up to early testers — the first apps real people outside my circle get to use.</p>
+        <div class="roadmap-stop reveal-up">
+          <span class="roadmap-stop-dot">○</span>
+          <p class="roadmap-stop-date">2027</p>
+          <h3 class="roadmap-stop-title">Soar Business + Sirat Schools<span class="roadmap-stop-badge">Planned</span></h3>
+          <p class="roadmap-stop-desc">The business operating system and the school management layer come online, extending both ecosystems outward.</p>
         </div>
 
-        <div class="roadmap-stop reveal">
-          <span class="roadmap-stop__dot">○</span>
-          <p class="roadmap-stop__date mono">2027</p>
-          <h3 class="roadmap-stop__title">Soar Business + Sirat Schools<span class="roadmap-stop__badge">Planned</span></h3>
-          <p class="roadmap-stop__desc">The business operating system and the school management layer come online, extending both ecosystems outward.</p>
-        </div>
-
-        <div class="roadmap-stop reveal">
-          <span class="roadmap-stop__dot">✦</span>
-          <p class="roadmap-stop__date mono">2027 &amp; beyond</p>
-          <h3 class="roadmap-stop__title">21 apps, one universe<span class="roadmap-stop__badge">Vision</span></h3>
-          <p class="roadmap-stop__desc">Soar and Sirat, fully connected — every app, every pillar, live and talking to each other.</p>
+        <div class="roadmap-stop reveal-up">
+          <span class="roadmap-stop-dot">✦</span>
+          <p class="roadmap-stop-date">2027 &amp; beyond</p>
+          <h3 class="roadmap-stop-title">21 apps, one universe<span class="roadmap-stop-badge">Vision</span></h3>
+          <p class="roadmap-stop-desc">Soar and Sirat, fully connected — every app, every pillar, live and talking to each other.</p>
         </div>
       </div>
     </section>
 
-    <section class="teasers">
-      <a href="about.html" class="teaser-card teaser-card--sirat reveal">
-        <div class="teaser-card__bg" aria-hidden="true"></div>
-        <p class="mono c-sirat">07 — The Story</p>
-        <h3>About Samir</h3>
-        <p>Why a two-ecosystem, twenty-one-app universe — and what it's like building it.</p>
-        <span class="link-arrow c-sirat-hover">Read the story <span>→</span></span>
+    <section class="teasers section">
+      <a href="about.html" class="pricing-card tilt-card reveal-up">
+        <p class="eyebrow">07 / The story</p>
+        <h3 class="headline">About Samir</h3>
+        <p class="pricing-copy">Why a two-ecosystem, twenty-one-app universe — and what it's like building it.</p>
+        <span class="text-link">Read the story <b>↗</b></span>
       </a>
-      <a href="index.html#contact" class="teaser-card teaser-card--soar reveal">
-        <div class="teaser-card__bg" aria-hidden="true"></div>
-        <p class="mono c-soar">09 — Get in touch</p>
-        <h3>Contact</h3>
-        <p>Want to follow along, or build something together? Reach out directly.</p>
-        <span class="link-arrow c-soar-hover">Say hello <span>→</span></span>
+      <a href="index.html#contact" class="pricing-card tilt-card reveal-up">
+        <p class="eyebrow">09 / Get in touch</p>
+        <h3 class="headline">Contact</h3>
+        <p class="pricing-copy">Want to follow along, or build something together? Reach out directly.</p>
+        <span class="text-link">Say hello <b>↗</b></span>
       </a>
     </section>
   </main>
 
-  <footer class="footer">
-    <span class="nav__mark nav__mark--sm"><img src="assets/logo_favicon.png" alt="Samir Yasar logo" /></span>
-    <p>&copy; <span id="year"></span> Samir Yasar</p>
-    <div class="footer__social">
-      <a href="https://github.com/sysamiryasar" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-        <svg viewBox="0 0 24 24" fill="none" width="15" height="15"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" /></svg>
-      </a>
-    </div>
-  </footer>
-
-  <button class="to-top" id="toTop" type="button" aria-label="Back to top">
-    <svg viewBox="0 0 24 24" fill="none"><path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
-  </button>
-
-  <div class="shortcuts-overlay" id="shortcutsOverlay" hidden>
-    <div class="shortcuts-backdrop" id="shortcutsBackdrop"></div>
-    <div class="shortcuts-panel" role="dialog" aria-modal="true" aria-label="Keyboard shortcuts">
-      <div class="shortcuts-head">
-        <h3>Keyboard shortcuts</h3>
-        <button class="shortcuts-close" id="shortcutsClose" type="button" aria-label="Close">&times;</button>
-      </div>
-      <div class="shortcuts-body">
-        <div class="shortcut-row"><kbd>Ctrl</kbd> + <kbd>K</kbd><span>Open command palette</span></div>
-        <div class="shortcut-row"><kbd>?</kbd><span>Show this help</span></div>
-        <div class="shortcut-row"><kbd>T</kbd><span>Toggle theme</span></div>
-        <div class="shortcut-row"><kbd>Esc</kbd><span>Close any overlay</span></div>
-        <div class="shortcut-row"><kbd>↑</kbd> / <kbd>↓</kbd><span>Navigate command palette</span></div>
-        <div class="shortcut-row"><kbd>Enter</kbd><span>Select in command palette</span></div>
-      </div>
-    </div>
-  </div>
+  <footer class="footer"><a class="brand" href="index.html#top"><span class="brand-mark">S</span><span>Samir Yasar</span></a><p>Independent builder of future systems.</p><div><a href="https://github.com/sysamiryasar" target="_blank" rel="noreferrer">GitHub</a><a href="index.html#top">Back to top ↑</a></div></footer>
 
   <button class="sam-launcher" id="samLauncher" type="button" aria-label="Open Ask Sam assistant">
     <svg viewBox="0 0 24 24" fill="none"><path d="M4 5.5C4 4.67 4.67 4 5.5 4h13c.83 0 1.5.67 1.5 1.5v10c0 .83-.67 1.5-1.5 1.5H9l-4 3.5v-3.5H5.5C4.67 16.5 4 15.83 4 15v-9.5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" /></svg>
     <span class="sam-dot"></span>
   </button>
-
   <div class="sam-panel" id="samPanel" aria-hidden="true">
     <div class="sam-panel__head">
       <div class="sam-panel__avatar">S</div>
-      <div>
-        <div class="sam-panel__title">Ask Sam</div>
-        <div class="sam-panel__subtitle">Local guide · Soar &amp; Sirat</div>
-      </div>
+      <div><div class="sam-panel__title">Ask Sam</div><div class="sam-panel__subtitle">Local guide · Soar &amp; Sirat</div></div>
       <button class="sam-panel__close" id="samClose" type="button" aria-label="Close">&times;</button>
     </div>
     <div class="sam-panel__body" id="samBody" aria-live="polite"></div>
@@ -236,13 +168,12 @@
     </div>
     <form class="sam-panel__form" id="samForm">
       <input class="sam-panel__input" id="samInput" type="text" placeholder="Ask about Soar or Sirat…" autocomplete="off" />
-      <button class="sam-panel__send" type="submit" aria-label="Send">
-        <svg viewBox="0 0 24 24" fill="none"><path d="M4 12h15M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
-      </button>
+      <button class="sam-panel__send" type="submit" aria-label="Send"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12h15M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg></button>
     </form>
   </div>
 
-  <script src="js/script.js"></script>
+  <script src="js/vendor/gsap.min.js"></script><script src="js/vendor/ScrollTrigger.min.js"></script><script src="js/vendor/lenis.min.js"></script><script src="js/vendor/split-type.min.js"></script>
+  <script src="js/scroll.js"></script><script src="js/cursor.js"></script><script src="js/navbar.js"></script><script src="js/animations.js"></script><script src="js/main.js"></script><script src="js/audio.js"></script><script type="module" src="js/universe.js"></script>
   <script src="js/chat.js"></script>
 </body>
 </html>

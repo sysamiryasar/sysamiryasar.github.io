@@ -509,7 +509,10 @@ if (canvas) {
         const fall = outEnd > outStart ? 1 - smoothstepJS(outStart, outEnd, p) : 1;
         return Math.min(rise, fall);
       }
-      const zs = (i) => (i < zoneStarts.length ? zoneStarts[i] : 1);
+      // Beyond the known zones, fall back to strictly-increasing out-of-range values (not a flat 1) so
+      // fadeWindow()'s zero-width-window shortcut doesn't collapse into "always fully visible" on pages
+      // with fewer sections than index.html's seven.
+      const zs = (i) => (i < zoneStarts.length ? zoneStarts[i] : 2 + i);
       const blackHoleScreenPos = new THREE.Vector3();
       const tmpColorA = new THREE.Color(), tmpColorB = new THREE.Color();
       const clock = new THREE.Clock();

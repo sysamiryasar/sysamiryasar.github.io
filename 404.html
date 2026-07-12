@@ -3,75 +3,75 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Samir Yasar</title>
   <meta name="robots" content="noindex" />
-  <meta name="theme-color" content="#0a0814" />
+  <meta name="theme-color" content="#08090e" />
+  <title>Page not found | Samir Yasar</title>
   <link rel="icon" type="image/png" href="assets/logo_favicon.png" />
   <link rel="apple-touch-icon" href="assets/logo_favicon.png" />
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/styles.css" />
   <style>
-    .error-page {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 32px;
-    }
-    .error-page__code {
-      font-family: var(--serif);
-      font-size: clamp(6rem, 15vw, 12rem);
-      font-weight: 400;
-      line-height: 1;
-      background: linear-gradient(135deg, var(--soar), var(--soar-2), var(--sirat-2), var(--sirat));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 24px;
-      filter: drop-shadow(0 0 26px rgba(178, 100, 255, 0.35));
-    }
-    .error-page__msg {
-      font-family: var(--serif);
-      font-size: clamp(1.3rem, 3vw, 2rem);
-      font-weight: 400;
-      margin: 0 0 12px;
-    }
-    .error-page__sub {
-      color: var(--text-dim);
-      margin: 0 0 40px;
-      max-width: 380px;
-    }
-    .error-page__links {
-      display: flex;
-      gap: 32px;
-      flex-wrap: wrap;
-    }
+    .error-page { min-height: 82svh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 32px 0; }
+    .error-page__code { margin: 0 0 22px; font: 500 clamp(96px,15vw,190px)/.9 var(--serif); letter-spacing: -.06em; background: linear-gradient(120deg, var(--cyan), var(--blue), var(--violet)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; filter: drop-shadow(0 0 30px rgba(114,212,255,.22)); }
+    .error-page__msg { margin: 0 0 12px; font: 500 clamp(22px,3vw,32px) var(--serif); }
+    .error-page__sub { max-width: 380px; margin: 0 0 40px; color: var(--muted); }
+    .error-page__links { display: flex; gap: 34px; flex-wrap: wrap; justify-content: center; }
   </style>
 </head>
-<body>
-  <canvas class="bg-canvas" id="bgCanvas" aria-hidden="true"></canvas>
-  <div class="cyber-grid" aria-hidden="true"></div>
-  <div class="grain" aria-hidden="true"></div>
-  <div class="scanlines" aria-hidden="true"></div>
-  <div class="glow" id="glow" aria-hidden="true"></div>
+<body class="antialiased">
+  <div class="noise" aria-hidden="true"></div>
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+  <canvas id="universe" aria-hidden="true"></canvas>
+  <div class="cosmic-vignette" aria-hidden="true"></div>
 
-  <div class="error-page">
-    <div class="error-page__code reveal">404</div>
-    <h1 class="error-page__msg reveal">Page not found</h1>
-    <p class="error-page__sub reveal">The page you're looking for doesn't exist or has been moved.</p>
-    <div class="error-page__links reveal">
-      <a href="index.html" class="link-arrow">Go home <span>&rarr;</span></a>
-      <a href="soar.html" class="link-arrow c-soar-hover">Soar <span>&rarr;</span></a>
-      <a href="sirat.html" class="link-arrow c-sirat-hover">Sirat <span>&rarr;</span></a>
-      <a href="roadmap.html" class="link-arrow">Roadmap <span>&rarr;</span></a>
+  <header class="nav-shell" id="navbar">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand magnetic" href="index.html#top" aria-label="Samir Yasar home"><span class="brand-mark">S</span><span>Samir Yasar</span></a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html#top">Home</a><a href="about.html">Story</a><a href="roadmap.html">Roadmap</a><a href="index.html#contact">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <button class="icon-btn magnetic audio-toggle is-muted" id="audioToggle" type="button" aria-label="Play ambient sound">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 5V4L8 9H4z"></path><path class="audio-toggle__wave" d="M16.5 8.5a5 5 0 0 1 0 7"></path><path class="audio-toggle__wave audio-toggle__wave--far" d="M19 6a8.5 8.5 0 0 1 0 12"></path><line class="audio-toggle__slash" x1="3" y1="21" x2="21" y2="3"></line></svg>
+        </button>
+        <button class="icon-btn magnetic" id="searchButton" aria-label="Open site navigation"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="5.8"></circle><path d="m16 16 4.2 4.2"></path></svg></button>
+        <a class="nav-cta magnetic" href="index.html#contact"><span>Start a conversation</span><i></i></a>
+        <button class="menu-btn" id="menuButton" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+      </div>
+    </nav>
+  </header>
+
+  <div class="command-panel" id="commandPanel" aria-hidden="true">
+    <button class="command-backdrop" data-close-command aria-label="Close navigation"></button>
+    <div class="command-content" role="dialog" aria-modal="true" aria-label="Site navigation">
+      <p class="eyebrow">Navigate the field</p>
+      <a href="index.html#vision" data-command-link>Vision <b>01</b></a><a href="index.html#systems" data-command-link>Systems <b>02</b></a><a href="index.html#pricing" data-command-link>Pricing <b>03</b></a><a href="index.html#signal" data-command-link>Signal <b>04</b></a><a href="index.html#journal" data-command-link>Journal <b>05</b></a><a href="about.html" data-command-link>Story <b>06</b></a><a href="roadmap.html" data-command-link>Roadmap <b>07</b></a><a href="index.html#contact" data-command-link>Contact <b>08</b></a>
     </div>
   </div>
 
-  <script src="js/script.js"></script>
+  <main id="top">
+    <section class="error-page section">
+      <p class="eyebrow reveal-up">Signal lost</p>
+      <div class="error-page__code reveal-up">404</div>
+      <h1 class="error-page__msg reveal-up">Page not found</h1>
+      <p class="error-page__sub reveal-up">The page you're looking for doesn't exist or has been moved.</p>
+      <div class="error-page__links reveal-up">
+        <a href="index.html" class="text-link">Go home <span>↗</span></a>
+        <a href="soar.html" class="text-link">Soar <span>↗</span></a>
+        <a href="sirat.html" class="text-link">Sirat <span>↗</span></a>
+        <a href="roadmap.html" class="text-link">Roadmap <span>↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><a class="brand" href="index.html#top"><span class="brand-mark">S</span><span>Samir Yasar</span></a><p>Independent builder of future systems.</p><div><a href="https://github.com/sysamiryasar" target="_blank" rel="noreferrer">GitHub</a><a href="index.html#top">Back to top ↑</a></div></footer>
+
+  <script src="js/vendor/gsap.min.js"></script><script src="js/vendor/ScrollTrigger.min.js"></script><script src="js/vendor/lenis.min.js"></script><script src="js/vendor/split-type.min.js"></script>
+  <script src="js/scroll.js"></script><script src="js/cursor.js"></script><script src="js/navbar.js"></script><script src="js/animations.js"></script><script src="js/main.js"></script><script src="js/audio.js"></script><script type="module" src="js/universe.js"></script>
 </body>
 </html>
