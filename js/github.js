@@ -6,7 +6,7 @@
   const list = document.getElementById("ghActivity");
   if (!list) return;
 
-  const USERNAME = "samiryasar14";
+  const USERNAME = "sysamiryasar";
   const CACHE_KEY = `gh-repos-${USERNAME}`;
   const CACHE_TTL = 15 * 60 * 1000;
 
