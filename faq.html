@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Frequently asked questions about Samir Yasar and his projects." />
+  <meta name="theme-color" content="#08090e" />
+  <title>FAQ | Samir Yasar</title>
+  <link rel="icon" type="image/png" href="assets/logo_favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/content.css" />
+  <style>
+    .faq-list { max-width: 720px; margin: 0 auto; padding-bottom: 150px; }
+    .faq-item { border-bottom: 1px solid var(--line); }
+    .faq-question { display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 24px 0; border: 0; background: transparent; color: var(--paper); font: 500 clamp(16px,1.5vw,20px) var(--serif); text-align: left; cursor: pointer; transition: color .3s; }
+    .faq-question:hover { color: var(--cyan); }
+    .faq-question span { font-size: 20px; color: var(--muted); transition: transform .3s; }
+    .faq-item.is-open .faq-question span { transform: rotate(45deg); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height .4s var(--ease-out); }
+    .faq-answer p { margin: 0 0 20px; color: var(--muted); font-size: 15px; line-height: 1.7; }
+  </style>
+</head>
+<body class="antialiased">
+  <div class="noise" aria-hidden="true"></div>
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+  <canvas id="universe" aria-hidden="true"></canvas>
+  <div class="cosmic-vignette" aria-hidden="true"></div>
+
+  <header class="nav-shell" id="navbar">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand magnetic" href="index.html#top" aria-label="Samir Yasar home"><span class="brand-mark">S</span><span>Samir Yasar</span></a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html#top">Home</a><a href="about.html">Story</a><a href="projects.html">Projects</a><a href="skills.html">Skills</a><a href="blog.html">Blog</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <button class="icon-btn magnetic" id="searchButton" aria-label="Open site navigation"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="5.8"></circle><path d="m16 16 4.2 4.2"></path></svg></button>
+        <button class="menu-btn" id="menuButton" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>FAQ</span></nav>
+
+    <section class="page-hero section">
+      <p class="eyebrow reveal-up">Questions</p>
+      <h1 class="reveal-up">FAQ</h1>
+      <p class="page-hero__sub reveal-up">Common questions about me and my work.</p>
+    </section>
+
+    <section class="section">
+      <div class="faq-list">
+        <div class="faq-item reveal-up">
+          <button class="faq-question">Where are you from? <span>+</span></button>
+          <div class="faq-answer"><p>I was born in Dhaka, Bangladesh and currently live in Irving, Texas.</p></div>
+        </div>
+        <div class="faq-item reveal-up">
+          <button class="faq-question">What do you build? <span>+</span></button>
+          <div class="faq-answer"><p>I build AI-powered ecosystems and community tools. My main projects are Soar (productivity), Sirat (Islamic learning), and SILA (the binding system).</p></div>
+        </div>
+        <div class="faq-item reveal-up">
+          <button class="faq-question">What technologies do you use? <span>+</span></button>
+          <div class="faq-answer"><p>JavaScript, TypeScript, Python, React, Next.js, Node.js, Three.js, GSAP, OpenAI, and various AI/ML tools. I also work with Arabic NLP for Sirat.</p></div>
+        </div>
+        <div class="faq-item reveal-up">
+          <button class="faq-question">How can I contact you? <span>+</span></button>
+          <div class="faq-answer"><p>Reach me at samir.yasar.usa@gmail.com or through the contact page. You can also find me on GitHub.</p></div>
+        </div>
+        <div class="faq-item reveal-up">
+          <button class="faq-question">Are your projects open source? <span>+</span></button>
+          <div class="faq-answer"><p>Some components are open source. I share code and experiments on GitHub. The main Soar and Sirat systems are currently in private development.</p></div>
+        </div>
+        <div class="faq-item reveal-up">
+          <button class="faq-question">What inspired you to build Soar? <span>+</span></button>
+          <div class="faq-answer"><p>Frustration with using a dozen disconnected apps. I wanted one system that thought the way I do — combining chat, tasks, briefings, and creative tools.</p></div>
+        </div>
+        <div class="faq-item reveal-up">
+          <button class="faq-question">What is Sirat? <span>+</span></button>
+          <div class="faq-answer"><p>An Islamic learning and community suite. Quran learning, prayer management, and community connection — built with the same care as any premium product.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-top"><a class="brand" href="index.html#top"><span class="brand-mark">S</span><span>Samir Yasar</span></a><p>Independent builder of future systems — born in Bangladesh, now in Irving, TX. Building with AI, human potential, and community.</p></div>
+    <div class="footer-cols">
+      <div><h4>Site</h4><a href="index.html#top">Home</a><a href="about.html">Story</a><a href="projects.html">Projects</a><a href="contact.html">Contact</a></div>
+      <div><h4>Systems</h4><a href="soar.html">Soar</a><a href="sirat.html">Sirat</a><a href="sila.html">SILA</a></div>
+      <div><h4>Explore</h4><a href="skills.html">Skills</a><a href="blog.html">Blog</a><a href="gallery.html">Gallery</a><a href="experience.html">Experience</a></div>
+      <div><h4>Connect</h4><a href="https://github.com/sysamiryasar" target="_blank" rel="noreferrer noopener">GitHub</a><a href="mailto:samir.yasar.usa@gmail.com">Email</a></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Samir Yasar.</span><a href="index.html#top">Back to top ↑</a></div>
+  </footer>
+
+  <script src="js/vendor/gsap.min.js"></script><script src="js/vendor/ScrollTrigger.min.js"></script><script src="js/vendor/lenis.min.js"></script><script src="js/vendor/split-type.min.js"></script>
+  <script src="js/scroll.js"></script><script src="js/cursor.js"></script><script src="js/navbar.js"></script><script src="js/animations.js"></script><script src="js/main.js"></script><script type="module" src="js/universe.js"></script>
+  <script>
+    document.querySelectorAll('.faq-question').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var item = this.closest('.faq-item');
+        var answer = item.querySelector('.faq-answer');
+        var isOpen = item.classList.contains('is-open');
+        document.querySelectorAll('.faq-item.is-open').forEach(function(open) { open.classList.remove('is-open'); open.querySelector('.faq-answer').style.maxHeight = '0'; });
+        if (!isOpen) { item.classList.add('is-open'); answer.style.maxHeight = answer.scrollHeight + 'px'; }
+      });
+    });
+  </script>
+</body>
+</html>

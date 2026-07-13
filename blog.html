@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Thoughts, learnings, and updates from Samir Yasar." />
+  <meta name="theme-color" content="#08090e" />
+  <title>Blog | Samir Yasar</title>
+  <link rel="icon" type="image/png" href="assets/logo_favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/content.css" />
+</head>
+<body class="antialiased">
+  <div class="noise" aria-hidden="true"></div>
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+  <canvas id="universe" aria-hidden="true"></canvas>
+  <div class="cosmic-vignette" aria-hidden="true"></div>
+
+  <header class="nav-shell" id="navbar">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand magnetic" href="index.html#top" aria-label="Samir Yasar home"><span class="brand-mark">S</span><span>Samir Yasar</span></a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html#top">Home</a><a href="about.html">Story</a><a href="projects.html">Projects</a><a href="skills.html">Skills</a><a href="blog.html">Blog</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <button class="icon-btn magnetic" id="searchButton" aria-label="Open site navigation"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="5.8"></circle><path d="m16 16 4.2 4.2"></path></svg></button>
+        <button class="menu-btn" id="menuButton" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>Blog</span></nav>
+
+    <section class="page-hero section">
+      <p class="eyebrow reveal-up">Writing</p>
+      <h1 class="reveal-up">Blog</h1>
+      <p class="page-hero__sub reveal-up">Thoughts on building, learning, and the intersection of faith and technology.</p>
+    </section>
+
+    <section class="story section">
+      <div class="story-section reveal-up">
+        <p class="eyebrow">Jul 2026</p>
+        <h2>Why I'm Building Soar</h2>
+        <p>The tools that existed almost did what I needed — just not quite. So I started sketching what I actually wanted, and then I started building it. Soar is the result of that frustration turned into action.</p>
+      </div>
+
+      <div class="story-section reveal-up">
+        <p class="eyebrow">Jun 2026</p>
+        <h2>Learning Arabic NLP</h2>
+        <p>Building Sirat meant tackling Arabic natural language processing — a space that's underserved but important. Here's what I've learned about building for languages beyond English.</p>
+      </div>
+
+      <div class="story-section reveal-up">
+        <p class="eyebrow">May 2026</p>
+        <h2>Building in Public</h2>
+        <p>There's something terrifying about sharing your work before it's perfect. But building in public has taught me more than any tutorial ever could.</p>
+      </div>
+
+      <div class="story-section reveal-up">
+        <p class="eyebrow">Apr 2026</p>
+        <h2>Three.js and the Universe</h2>
+        <p>I wanted my portfolio to feel like more than a website. Adding a progressive zoom universe with Three.js was the answer — here's how I built it.</p>
+      </div>
+
+      <div class="story-section reveal-up">
+        <p class="eyebrow">Mar 2026</p>
+        <h2>From Dhaka to Irving</h2>
+        <p>Moving from Bangladesh to Texas changed how I see technology. The energy of Dhaka and the space of Texas — both shape what I build.</p>
+      </div>
+
+      <div class="story-section reveal-up">
+        <p class="eyebrow">Jan 2026</p>
+        <h2>First Lines of Code</h2>
+        <p>The beginning of Soar and Sirat. Lots of false starts, a lot of deleted code, and the first real architecture. Here's how it started.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-top"><a class="brand" href="index.html#top"><span class="brand-mark">S</span><span>Samir Yasar</span></a><p>Independent builder of future systems — born in Bangladesh, now in Irving, TX. Building with AI, human potential, and community.</p></div>
+    <div class="footer-cols">
+      <div><h4>Site</h4><a href="index.html#top">Home</a><a href="about.html">Story</a><a href="projects.html">Projects</a><a href="contact.html">Contact</a></div>
+      <div><h4>Systems</h4><a href="soar.html">Soar</a><a href="sirat.html">Sirat</a><a href="sila.html">SILA</a></div>
+      <div><h4>Explore</h4><a href="skills.html">Skills</a><a href="blog.html">Blog</a><a href="gallery.html">Gallery</a><a href="experience.html">Experience</a></div>
+      <div><h4>Connect</h4><a href="https://github.com/sysamiryasar" target="_blank" rel="noreferrer noopener">GitHub</a><a href="mailto:samir.yasar.usa@gmail.com">Email</a></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Samir Yasar.</span><a href="index.html#top">Back to top ↑</a></div>
+  </footer>
+
+  <script src="js/vendor/gsap.min.js"></script><script src="js/vendor/ScrollTrigger.min.js"></script><script src="js/vendor/lenis.min.js"></script><script src="js/vendor/split-type.min.js"></script>
+  <script src="js/scroll.js"></script><script src="js/cursor.js"></script><script src="js/navbar.js"></script><script src="js/animations.js"></script><script src="js/main.js"></script><script type="module" src="js/universe.js"></script>
+</body>
+</html>
