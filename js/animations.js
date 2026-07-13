@@ -10,7 +10,7 @@
     element.style.visibility = 'visible';
     gsap.to(split.chars, { y: 0, duration: .95, stagger: .012, ease: 'power4.out', scrollTrigger: { trigger: element, start: 'top 88%', once: true } });
   });
-  gsap.utils.toArray('.reveal-up').forEach((element) => gsap.to(element, { opacity: 1, y: 0, duration: .9, ease: 'power3.out', scrollTrigger: { trigger: element, start: 'top 90%', once: true } }));
+  gsap.utils.toArray('.reveal-up').forEach((element) => gsap.to(element, { opacity: 1, y: 0, filter: 'blur(0px)', duration: 1.1, ease: 'power3.out', scrollTrigger: { trigger: element, start: 'top 90%', once: true } }));
   gsap.utils.toArray('.system-card').forEach((card, index) => gsap.from(card, { y: 55, opacity: 0, duration: .9, delay: index * .08, ease: 'power3.out', scrollTrigger: { trigger: '.system-rail', start: 'top 85%', once: true } }));
   gsap.utils.toArray('.pricing-card').forEach((card, index) => gsap.from(card, { y: 55, opacity: 0, duration: .9, delay: index * .08, ease: 'power3.out', scrollTrigger: { trigger: '.pricing-grid', start: 'top 85%', once: true } }));
   gsap.utils.toArray('.metric strong').forEach((counter) => {

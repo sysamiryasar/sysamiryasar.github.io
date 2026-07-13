@@ -9,7 +9,7 @@
 @keyframes shimmer { to { background-position: 200% center; } }
 @keyframes line { to { stroke-dashoffset: 0; } }
 
-.reveal-up { opacity: 0; transform: translateY(28px); }
+.reveal-up { opacity: 0; transform: translateY(28px); filter: blur(14px); }
 .split-reveal { visibility: hidden; }
 .char { transform: translateY(105%); display: inline-block; will-change: transform; }
-@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; } .reveal-up, .split-reveal { opacity: 1; visibility: visible; transform: none; } .char { transform: none; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; } .reveal-up, .split-reveal { opacity: 1; visibility: visible; transform: none; filter: none; } .char { transform: none; } }

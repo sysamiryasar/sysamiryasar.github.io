@@ -17,7 +17,6 @@
   <link rel="stylesheet" href="css/variables.css" />
   <link rel="stylesheet" href="css/animations.css" />
   <link rel="stylesheet" href="css/styles.css" />
-  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="antialiased">
   <div class="site-loader" id="siteLoader" aria-hidden="true">
@@ -69,6 +68,7 @@
 
     <nav class="section-nav" id="sectionNav" aria-label="Section navigation">
       <div class="section-nav__inner">
+        <a href="#top" class="section-nav__top">↑<span>Back to Top</span></a>
         <a href="#vision" data-section-link>01<span>Vision</span></a>
         <a href="#systems" data-section-link>02<span>Systems</span></a>
         <a href="#pricing" data-section-link>03<span>Pricing</span></a>
@@ -101,41 +101,62 @@
     <section class="pricing section" id="pricing">
       <div class="section-label"><span>03</span><p>Access tiers</p></div>
       <div class="pricing-head"><h2 class="headline">Two systems.<br /><em>However you want in.</em></h2><p>Planned pricing for Soar and Sirat. Early access opens as each system leaves formation.</p></div>
+      <div class="pricing-toggle" role="group" aria-label="Billing period">
+        <button type="button" class="pricing-toggle__btn is-active" data-billing="monthly">Monthly</button>
+        <button type="button" class="pricing-toggle__btn" data-billing="annual">Annual <span class="pricing-toggle__save">Save 10%</span></button>
+      </div>
       <div class="pricing-grid">
         <article class="pricing-card tilt-card">
-          <div class="pricing-top"><p class="eyebrow">Free</p><div class="pricing-price"><span>$0</span><small>/ forever</small></div><p class="pricing-copy">Explore either system on your own.</p></div>
+          <div class="pricing-top"><p class="eyebrow">Scout</p><div class="pricing-price"><span data-monthly="$0" data-annual="$0">$0</span><small data-period-monthly="/ forever" data-period-annual="/ forever">/ forever</small></div><p class="pricing-copy">Explore either system on your own.</p></div>
           <ul class="pricing-list">
             <li>Full access to Soar <b>or</b> Sirat, used separately</li>
             <li>Not bundled — no combined mode</li>
             <li>1 platform (web)</li>
             <li>Community support</li>
+            <li>Core AI features included</li>
           </ul>
           <a class="button button-quiet magnetic pricing-cta" href="#contact">Join the waitlist <span>↗</span></a>
         </article>
         <article class="pricing-card pricing-card--pro tilt-card">
           <span class="pricing-badge">Most requested</span>
-          <div class="pricing-top"><p class="eyebrow">Pro</p><div class="pricing-price"><span>$14</span><small>/ month</small></div><p class="pricing-copy">Run Soar and Sirat together.</p></div>
+          <div class="pricing-top"><p class="eyebrow">Ascent</p><div class="pricing-price"><span data-monthly="$59" data-annual="$53">$59</span><small data-period-monthly="/ month" data-period-annual="/ mo, billed yearly">/ month</small></div><p class="pricing-copy">Run Soar and Sirat together.</p></div>
           <ul class="pricing-list">
-            <li>Everything in Free</li>
+            <li>Everything in Scout</li>
             <li>Soar + Sirat combo mode, fully integrated</li>
             <li>Multi-platform — web, iOS, Android, desktop</li>
             <li>Usage limits apply (monthly actions &amp; storage)</li>
             <li>Priority support</li>
+            <li>Custom workflows &amp; integrations</li>
           </ul>
           <a class="button button-primary magnetic pricing-cta" href="#contact">Get early access <span>↗</span></a>
         </article>
         <article class="pricing-card tilt-card">
-          <div class="pricing-top"><p class="eyebrow">Premium</p><div class="pricing-price"><span>$29</span><small>/ month</small></div><p class="pricing-copy">Everything. No limits watching.</p></div>
+          <div class="pricing-top"><p class="eyebrow">Orbit</p><div class="pricing-price"><span data-monthly="$125" data-annual="$113">$125</span><small data-period-monthly="/ month" data-period-annual="/ mo, billed yearly">/ month</small></div><p class="pricing-copy">Everything. No limits watching.</p></div>
           <ul class="pricing-list">
-            <li>Everything in Pro</li>
+            <li>Everything in Ascent</li>
             <li>Unlimited usage across both systems</li>
             <li>Every platform, first access to new systems</li>
             <li>Dedicated support channel</li>
+            <li>Advanced analytics &amp; reporting</li>
+            <li>Team seats (up to 5)</li>
           </ul>
           <a class="button button-quiet magnetic pricing-cta" href="#contact">Go premium <span>↗</span></a>
         </article>
+        <article class="pricing-card pricing-card--vanguard tilt-card">
+          <span class="pricing-badge pricing-badge--vanguard">Advanced</span>
+          <div class="pricing-top"><p class="eyebrow">Vanguard</p><div class="pricing-price"><span data-monthly="$249" data-annual="$224">$249</span><small data-period-monthly="/ month" data-period-annual="/ mo, billed yearly">/ month</small></div><p class="pricing-copy">Build alongside me. See it before anyone else.</p></div>
+          <ul class="pricing-list">
+            <li>Everything in Orbit</li>
+            <li>Full API &amp; developer access</li>
+            <li>Early access to every future system, before public release</li>
+            <li>Direct line to the roadmap — shape what gets built next</li>
+            <li>Advanced / experimental feature flags</li>
+            <li>White-glove onboarding &amp; priority feature requests</li>
+          </ul>
+          <a class="button button-quiet magnetic pricing-cta" href="#contact">Request developer access <span>↗</span></a>
+        </article>
       </div>
-      <p class="pricing-footnote">Pricing reflects current plans and may change before either system leaves formation.</p>
+      <p class="pricing-footnote">Pricing reflects current plans and may change before either system leaves formation. Annual billing saves 10% over monthly.</p>
     </section>
 
     <section class="signal section" id="signal">
@@ -175,6 +196,6 @@
   </footer>
 
   <script src="js/vendor/gsap.min.js"></script><script src="js/vendor/ScrollTrigger.min.js"></script><script src="js/vendor/lenis.min.js"></script><script src="js/vendor/split-type.min.js"></script>
-  <script src="js/scroll.js"></script><script src="js/cursor.js"></script><script src="js/navbar.js"></script><script src="js/animations.js"></script><script src="js/main.js"></script><script src="js/audio.js"></script><script type="module" src="js/universe.js"></script>
+  <script src="js/scroll.js"></script><script src="js/cursor.js"></script><script src="js/navbar.js"></script><script src="js/animations.js"></script><script src="js/main.js"></script><script src="js/audio.js"></script><script src="js/pricing.js"></script><script type="module" src="js/universe.js"></script>
 </body>
 </html>
