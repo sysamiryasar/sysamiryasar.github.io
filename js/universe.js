@@ -1,4 +1,4 @@
-/* Progressive zoom universe: Milky Way galaxy → Solar System → Earth → USA → City.
+/* Progressive zoom universe: Milky Way galaxy → Solar System.
    The camera starts wide in deep space and zooms continuously as the user scrolls,
    revealing each layer in sequence. Runs on the fixed #universe canvas. */
 import * as THREE from './vendor/three.module.js';
@@ -338,281 +338,7 @@ if (canvas) {
     }
 
     // ═══════════════════════════════════════════════════════════════════════
-    // LAYER 3 — EARTH  (scroll 0.40 – 0.70)
-    // Procedural blue marble with continent textures
-    // ═══════════════════════════════════════════════════════════════════════
-
-    function createEarthTexture() {
-      const c = document.createElement('canvas'); c.width = 1024; c.height = 512;
-      const ctx = c.getContext('2d');
-
-      // Ocean
-      const oceanGrad = ctx.createLinearGradient(0, 0, 0, 512);
-      oceanGrad.addColorStop(0, '#0a2a5e');
-      oceanGrad.addColorStop(0.3, '#0d4a8a');
-      oceanGrad.addColorStop(0.5, '#1060b0');
-      oceanGrad.addColorStop(0.7, '#0d4a8a');
-      oceanGrad.addColorStop(1, '#0a2a5e');
-      ctx.fillStyle = oceanGrad;
-      ctx.fillRect(0, 0, 1024, 512);
-
-      // Continents (simplified shapes)
-      ctx.fillStyle = '#2d8a4e';
-      // North America
-      ctx.beginPath();
-      ctx.moveTo(140, 80); ctx.lineTo(200, 60); ctx.lineTo(260, 70);
-      ctx.lineTo(280, 100); ctx.lineTo(270, 140); ctx.lineTo(240, 170);
-      ctx.lineTo(200, 180); ctx.lineTo(170, 160); ctx.lineTo(150, 120);
-      ctx.closePath(); ctx.fill();
-      // South America
-      ctx.beginPath();
-      ctx.moveTo(220, 220); ctx.lineTo(250, 210); ctx.lineTo(270, 240);
-      ctx.lineTo(260, 300); ctx.lineTo(240, 340); ctx.lineTo(220, 330);
-      ctx.lineTo(210, 280); ctx.closePath(); ctx.fill();
-      // Europe
-      ctx.beginPath();
-      ctx.moveTo(480, 80); ctx.lineTo(520, 70); ctx.lineTo(540, 90);
-      ctx.lineTo(530, 120); ctx.lineTo(500, 130); ctx.lineTo(480, 110);
-      ctx.closePath(); ctx.fill();
-      // Africa
-      ctx.beginPath();
-      ctx.moveTo(490, 150); ctx.lineTo(530, 140); ctx.lineTo(550, 170);
-      ctx.lineTo(540, 240); ctx.lineTo(520, 290); ctx.lineTo(490, 280);
-      ctx.lineTo(480, 220); ctx.lineTo(475, 180); ctx.closePath(); ctx.fill();
-      // Asia
-      ctx.beginPath();
-      ctx.moveTo(560, 60); ctx.lineTo(650, 50); ctx.lineTo(720, 70);
-      ctx.lineTo(750, 110); ctx.lineTo(730, 150); ctx.lineTo(680, 160);
-      ctx.lineTo(620, 150); ctx.lineTo(580, 120); ctx.lineTo(560, 90);
-      ctx.closePath(); ctx.fill();
-      // Australia
-      ctx.beginPath();
-      ctx.moveTo(740, 280); ctx.lineTo(790, 270); ctx.lineTo(810, 300);
-      ctx.lineTo(800, 330); ctx.lineTo(760, 330); ctx.lineTo(740, 310);
-      ctx.closePath(); ctx.fill();
-
-      // Ice caps
-      ctx.fillStyle = 'rgba(220,230,240,0.7)';
-      ctx.fillRect(0, 0, 1024, 30);
-      ctx.fillRect(0, 482, 1024, 30);
-
-      // Cloud wisps
-      ctx.strokeStyle = 'rgba(255,255,255,0.15)';
-      ctx.lineWidth = 8;
-      for (let i = 0; i < 20; i++) {
-        const x = Math.random() * 1024;
-        const y = 40 + Math.random() * 432;
-        ctx.beginPath();
-        ctx.moveTo(x, y);
-        ctx.quadraticCurveTo(x + 60 + Math.random() * 80, y + (Math.random() - 0.5) * 40, x + 120 + Math.random() * 100, y + (Math.random() - 0.5) * 30);
-        ctx.stroke();
-      }
-
-      const tex = new THREE.CanvasTexture(c);
-      tex.needsUpdate = true;
-      return tex;
-    }
-
-    const earthTexture = createEarthTexture();
-    const earthMesh = new THREE.Mesh(
-      new THREE.SphereGeometry(1.8, 64, 64),
-      new THREE.MeshStandardMaterial({
-        map: earthTexture, roughness: 0.7, metalness: 0.1,
-        transparent: true, opacity: 0,
-      })
-    );
-    earthMesh.position.set(0, 0, -3);
-    scene.add(earthMesh);
-
-    // Earth atmosphere
-    const earthAtmo = new THREE.Mesh(
-      new THREE.SphereGeometry(1.86, 48, 48),
-      new THREE.ShaderMaterial({
-        uniforms: { uColor: { value: new THREE.Color(0x4488ff) }, uPower: { value: 2.8 }, uIntensity: { value: 0.6 }, uOpacity: { value: 0 } },
-        vertexShader: planetVertex, fragmentShader: atmoFragment,
-        transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, side: THREE.BackSide,
-      })
-    );
-    earthAtmo.position.copy(earthMesh.position);
-    scene.add(earthAtmo);
-
-    // ═══════════════════════════════════════════════════════════════════════
-    // LAYER 4 — USA  (scroll 0.60 – 0.85)
-    // Zoom into North America, state borders glow
-    // ═══════════════════════════════════════════════════════════════════════
-
-    function createUSATexture() {
-      const c = document.createElement('canvas'); c.width = 1024; c.height = 512;
-      const ctx = c.getContext('2d');
-
-      // Dark background (ocean)
-      ctx.fillStyle = '#061428';
-      ctx.fillRect(0, 0, 1024, 512);
-
-      // USA landmass (focused on continental US)
-      ctx.fillStyle = '#1a3a28';
-      ctx.beginPath();
-      ctx.moveTo(160, 120); ctx.lineTo(380, 100); ctx.lineTo(420, 110);
-      ctx.lineTo(440, 130); ctx.lineTo(450, 170); ctx.lineTo(440, 200);
-      ctx.lineTo(400, 220); ctx.lineTo(350, 230); ctx.lineTo(300, 240);
-      ctx.lineTo(250, 235); ctx.lineTo(200, 220); ctx.lineTo(170, 190);
-      ctx.lineTo(155, 155); ctx.closePath(); ctx.fill();
-
-      // State borders (glowing lines)
-      ctx.strokeStyle = 'rgba(6,182,212,0.35)';
-      ctx.lineWidth = 1.5;
-      // Horizontal lines
-      for (let y = 120; y < 240; y += 25) {
-        ctx.beginPath();
-        ctx.moveTo(170, y); ctx.lineTo(430, y + (Math.random() - 0.5) * 8);
-        ctx.stroke();
-      }
-      // Vertical lines
-      for (let x = 180; x < 430; x += 30) {
-        ctx.beginPath();
-        ctx.moveTo(x, 110); ctx.lineTo(x + (Math.random() - 0.5) * 6, 235);
-        ctx.stroke();
-      }
-
-      // City dots (major cities)
-      const cities = [
-        [200, 170], [260, 150], [320, 140], [380, 155],
-        [230, 190], [290, 185], [350, 195], [410, 175],
-        [250, 210], [310, 215], [370, 210], [430, 195],
-      ];
-      cities.forEach(([x, y]) => {
-        const grad = ctx.createRadialGradient(x, y, 0, x, y, 12);
-        grad.addColorStop(0, 'rgba(6,182,212,0.6)');
-        grad.addColorStop(0.5, 'rgba(6,182,212,0.15)');
-        grad.addColorStop(1, 'rgba(6,182,212,0)');
-        ctx.fillStyle = grad;
-        ctx.fillRect(x - 12, y - 12, 24, 24);
-        ctx.fillStyle = '#06b6d4';
-        ctx.beginPath();
-        ctx.arc(x, y, 2, 0, Math.PI * 2);
-        ctx.fill();
-      });
-
-      // Chicago marker (where Samir is)
-      const chicagoX = 310, chicagoY = 145;
-      ctx.strokeStyle = '#f59e0b';
-      ctx.lineWidth = 2;
-      ctx.beginPath();
-      ctx.arc(chicagoX, chicagoY, 10, 0, Math.PI * 2);
-      ctx.stroke();
-      ctx.fillStyle = '#f59e0b';
-      ctx.beginPath();
-      ctx.arc(chicagoX, chicagoY, 3, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.fillStyle = '#f59e0b';
-      ctx.font = '12px monospace';
-      ctx.fillText('CHICAGO', chicagoX + 14, chicagoY + 4);
-
-      const tex = new THREE.CanvasTexture(c);
-      tex.needsUpdate = true;
-      return tex;
-    }
-
-    const usaTexture = createUSATexture();
-    const usaMesh = new THREE.Mesh(
-      new THREE.PlaneGeometry(6, 3, 1, 1),
-      new THREE.MeshBasicMaterial({
-        map: usaTexture, transparent: true, opacity: 0, side: THREE.DoubleSide,
-      })
-    );
-    usaMesh.position.set(0, 0, -2);
-    scene.add(usaMesh);
-
-    // ═══════════════════════════════════════════════════════════════════════
-    // LAYER 5 — CITY  (scroll 0.78 – 1.0)
-    // Street grid, buildings, lights
-    // ═══════════════════════════════════════════════════════════════════════
-
-    function createCityTexture() {
-      const c = document.createElement('canvas'); c.width = 1024; c.height = 1024;
-      const ctx = c.getContext('2d');
-
-      // Dark background
-      ctx.fillStyle = '#060a12';
-      ctx.fillRect(0, 0, 1024, 1024);
-
-      // Street grid
-      ctx.strokeStyle = 'rgba(6,182,212,0.2)';
-      ctx.lineWidth = 1;
-      const gridSize = 28;
-      for (let x = 0; x < 1024; x += gridSize) {
-        ctx.beginPath();
-        ctx.moveTo(x, 0); ctx.lineTo(x, 1024);
-        ctx.stroke();
-      }
-      for (let y = 0; y < 1024; y += gridSize) {
-        ctx.beginPath();
-        ctx.moveTo(0, y); ctx.lineTo(1024, y);
-        ctx.stroke();
-      }
-
-      // Main roads (wider, brighter)
-      ctx.strokeStyle = 'rgba(6,182,212,0.45)';
-      ctx.lineWidth = 3;
-      [256, 512, 768].forEach(pos => {
-        ctx.beginPath(); ctx.moveTo(pos, 0); ctx.lineTo(pos, 1024); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(0, pos); ctx.lineTo(1024, pos); ctx.stroke();
-      });
-
-      // Buildings (blocks of light)
-      for (let i = 0; i < 120; i++) {
-        const x = Math.random() * 1000 + 12;
-        const y = Math.random() * 1000 + 12;
-        const w = 8 + Math.random() * 18;
-        const h = 8 + Math.random() * 18;
-        const brightness = 0.08 + Math.random() * 0.2;
-        const hue = Math.random() > 0.7 ? 'rgba(245,158,11,' : 'rgba(6,182,212,';
-        ctx.fillStyle = hue + brightness + ')';
-        ctx.fillRect(x, y, w, h);
-      }
-
-      // Window lights
-      for (let i = 0; i < 300; i++) {
-        const x = Math.random() * 1024;
-        const y = Math.random() * 1024;
-        ctx.fillStyle = `rgba(255,240,200,${0.1 + Math.random() * 0.25})`;
-        ctx.fillRect(x, y, 2, 2);
-      }
-
-      // Lake Michigan (dark area on right side)
-      const lakeGrad = ctx.createLinearGradient(700, 0, 1024, 0);
-      lakeGrad.addColorStop(0, 'rgba(6,10,18,0)');
-      lakeGrad.addColorStop(0.3, 'rgba(6,10,18,0.8)');
-      lakeGrad.addColorStop(1, 'rgba(6,10,18,0.95)');
-      ctx.fillStyle = lakeGrad;
-      ctx.fillRect(700, 0, 324, 1024);
-
-      // Lake shore glow
-      ctx.strokeStyle = 'rgba(6,182,212,0.15)';
-      ctx.lineWidth = 2;
-      ctx.beginPath();
-      ctx.moveTo(700, 0);
-      ctx.quadraticCurveTo(720, 256, 710, 512);
-      ctx.quadraticCurveTo(700, 768, 720, 1024);
-      ctx.stroke();
-
-      const tex = new THREE.CanvasTexture(c);
-      tex.needsUpdate = true;
-      return tex;
-    }
-
-    const cityTexture = createCityTexture();
-    const cityMesh = new THREE.Mesh(
-      new THREE.PlaneGeometry(5, 5, 1, 1),
-      new THREE.MeshBasicMaterial({
-        map: cityTexture, transparent: true, opacity: 0, side: THREE.DoubleSide,
-      })
-    );
-    cityMesh.position.set(0, 0, -1.5);
-    scene.add(cityMesh);
-
-    // ═══════════════════════════════════════════════════════════════════════
-    // LAYER 6 — COMETS / SATELLITES  (always present, subtle)
+    // LAYER 3 — COMETS / SATELLITES  (always present, subtle)
     // ═══════════════════════════════════════════════════════════════════════
 
     function cometTexture() {
@@ -694,21 +420,18 @@ if (canvas) {
 
       const p = smoothProgress;
 
-      // ─── Camera zoom: galaxy → solar system → Earth → USA → city ───
-      // z goes from 12 (wide galaxy) down to 0.3 (city grid)
-      const galaxyFade = 1 - smoothstepJS(0.15, 0.35, p);
-      const solarFade = smoothstepJS(0.15, 0.25, p) * (1 - smoothstepJS(0.55, 0.7, p));
-      const earthFade = smoothstepJS(0.4, 0.55, p) * (1 - smoothstepJS(0.7, 0.85, p));
-      const usaFade = smoothstepJS(0.6, 0.75, p) * (1 - smoothstepJS(0.85, 0.95, p));
-      const cityFade = smoothstepJS(0.82, 0.92, p);
+      // ─── Camera zoom: galaxy → solar system ───
+      // z goes from 12 (wide galaxy) down to 2 (solar system close-up)
+      const galaxyFade = 1 - smoothstepJS(0.15, 0.4, p);
+      const solarFade = smoothstepJS(0.15, 0.3, p);
 
       // Camera position — smooth exponential zoom
-      const camZ = 12 - p * 11.5;
+      const camZ = 12 - p * 10;
       camera.position.z = camZ + smx * 0.3;
       camera.position.x = Math.sin(t * 0.04) * 0.2 + smx * 0.8;
       camera.position.y = Math.cos(t * 0.035) * 0.12 - smy * 0.5;
       camera.rotation.z = Math.sin(t * 0.025) * 0.006 + smx * 0.008;
-      camera.fov = 58 + cityFade * 15;
+      camera.fov = 58;
       camera.updateProjectionMatrix();
       camera.lookAt(0, 0, -2);
 
@@ -741,12 +464,12 @@ if (canvas) {
 
       // ─── Solar system planets ───
       const solarPlanets = [
-        [mercury, 0.15, 0.25, 0.55, 0.7],
-        [venus, 0.18, 0.28, 0.55, 0.7],
-        [earth, 0.2, 0.3, 0.55, 0.7],
-        [mars, 0.22, 0.32, 0.55, 0.7],
-        [jupiter, 0.25, 0.35, 0.6, 0.75],
-        [saturn, 0.28, 0.38, 0.65, 0.8],
+        [mercury, 0.12, 0.22, 0.85, 1.0],
+        [venus, 0.14, 0.24, 0.85, 1.0],
+        [earth, 0.16, 0.26, 0.85, 1.0],
+        [mars, 0.18, 0.28, 0.85, 1.0],
+        [jupiter, 0.2, 0.3, 0.88, 1.0],
+        [saturn, 0.22, 0.32, 0.9, 1.0],
       ];
       solarPlanets.forEach(([planet, fadeIn, fadeOutStart, fadeOutEnd, _]) => {
         const opacity = fadeWindow(p, fadeIn, fadeIn + 0.08, fadeOutStart, fadeOutEnd);
@@ -759,54 +482,20 @@ if (canvas) {
       });
 
       // Saturn ring
-      const saturnOpacity = fadeWindow(p, 0.28, 0.36, 0.65, 0.8);
+      const saturnOpacity = fadeWindow(p, 0.22, 0.32, 0.9, 1.0);
       saturnRing.material.uniforms.uOpacity.value = saturnOpacity;
       saturnRing.rotation.z = 0.3 + t * 0.008;
 
       // Sun glow
-      const sunOpacity = fadeWindow(p, 0.12, 0.22, 0.55, 0.7);
+      const sunOpacity = fadeWindow(p, 0.1, 0.2, 0.85, 1.0);
       sunSprite.material.opacity = sunOpacity;
       sunSprite.visible = sunOpacity > 0.01;
 
       // Asteroid belt
-      const beltOpacity = fadeWindow(p, 0.2, 0.3, 0.55, 0.7);
+      const beltOpacity = fadeWindow(p, 0.18, 0.28, 0.85, 1.0);
       asteroidMat.opacity = beltOpacity * 0.5;
       beltGroup.visible = beltOpacity > 0.02;
       beltGroup.rotation.y = t * 0.015;
-
-      // ─── Earth zoom ───
-      const earthZoom = fadeWindow(p, 0.38, 0.5, 0.68, 0.82);
-      earthMesh.material.opacity = earthZoom;
-      earthMesh.visible = earthZoom > 0.01;
-      earthMesh.rotation.y = t * 0.04 + p * 0.5;
-      // Scale Earth: small at first, then grows as we zoom in
-      const earthScale = 1 + earthZoom * 2.5;
-      earthMesh.scale.setScalar(earthScale);
-      earthMesh.position.z = -3 + p * 2;
-
-      earthAtmo.material.uniforms.uOpacity.value = earthZoom * 0.7;
-      earthAtmo.visible = earthZoom > 0.01;
-      earthAtmo.scale.setScalar(earthScale);
-      earthAtmo.position.copy(earthMesh.position);
-
-      // ─── USA overlay ───
-      const usaZoom = fadeWindow(p, 0.58, 0.7, 0.82, 0.94);
-      usaMesh.material.opacity = usaZoom;
-      usaMesh.visible = usaZoom > 0.01;
-      const usaScale = 0.5 + usaZoom * 3;
-      usaMesh.scale.setScalar(usaScale);
-      usaMesh.position.z = -2 + p * 2.5;
-      usaMesh.position.y = -0.1 + smy * 0.2;
-
-      // ─── City grid ───
-      const cityZoom = fadeWindow(p, 0.8, 0.9, 1, 1);
-      cityMesh.material.opacity = cityZoom;
-      cityMesh.visible = cityZoom > 0.01;
-      const cityScale = 0.3 + cityZoom * 4;
-      cityMesh.scale.setScalar(cityScale);
-      cityMesh.position.z = -1.5 + p * 2;
-      cityMesh.position.y = smy * 0.15;
-      cityMesh.position.x = smx * 0.15;
 
       // ─── Comets ───
       comets.forEach((c) => {
