@@ -53,11 +53,11 @@ button { font: inherit; color: inherit; }
 
 /* Video header background */
 .hero-video-wrap { position: absolute; inset: 0; overflow: hidden; border-radius: 18px; }
-.hero-video { width: 100%; height: 100%; object-fit: cover; opacity: .35; position: absolute; inset: 0; }
-.hero-video-overlay { position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(8,9,14,.7) 0%, rgba(8,9,14,.4) 40%, rgba(8,9,14,.85) 100%); pointer-events: none; }
+.hero-video { width: 100%; height: 100%; object-fit: cover; opacity: .55; position: absolute; inset: 0; }
+.hero-video-overlay { position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(8,9,14,.55) 0%, rgba(8,9,14,.2) 40%, rgba(8,9,14,.75) 100%); pointer-events: none; }
 .hero-video-wrap + .hero-orbit, .hero-video-wrap ~ .hero-content, .hero-video-wrap ~ .hero-meta, .hero-video-wrap ~ .hero-stat { position: relative; z-index: 2; }
 @media (max-width: 900px) { .hero-video-wrap { border-radius: 12px; } }
-@media (max-width: 620px) { .hero-video-wrap { border-radius: 0; left: -20px; right: -20px; } .hero-video { opacity: .25; } }
+@media (max-width: 620px) { .hero-video-wrap { border-radius: 0; left: -20px; right: -20px; } .hero-video { opacity: .4; } }
 
 /* Card visuals for teaser cards */
 .pricing-card .card-visual { position: relative; height: 180px; overflow: hidden; border-radius: 12px; margin-bottom: 8px; }
