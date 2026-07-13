@@ -37,6 +37,9 @@
         <button class="icon-btn magnetic audio-toggle is-muted" id="audioToggle" type="button" aria-label="Play ambient sound">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 5V4L8 9H4z"></path><path class="audio-toggle__wave" d="M16.5 8.5a5 5 0 0 1 0 7"></path><path class="audio-toggle__wave audio-toggle__wave--far" d="M19 6a8.5 8.5 0 0 1 0 12"></path><line class="audio-toggle__slash" x1="3" y1="21" x2="21" y2="3"></line></svg>
         </button>
+        <button class="icon-btn magnetic theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        </button>
         <button class="icon-btn magnetic" id="searchButton" aria-label="Open site navigation"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="5.8"></circle><path d="m16 16 4.2 4.2"></path></svg></button>
         <a class="nav-cta magnetic" href="#contact"><span>Start a conversation</span><i></i></a>
         <button class="menu-btn" id="menuButton" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
@@ -54,6 +57,12 @@
 
   <main id="top">
     <section class="hero section">
+      <div class="hero-video-wrap" aria-hidden="true">
+        <video class="hero-video" autoplay muted loop playsinline>
+          <source src="public/videos/header.mp4" type="video/mp4" />
+        </video>
+        <div class="hero-video-overlay"></div>
+      </div>
       <div class="hero-orbit" aria-hidden="true"><span></span><span></span><span></span></div>
       <div class="hero-content">
         <p class="eyebrow hero-kicker"><i></i> Independent builder / Irving, TX</p>

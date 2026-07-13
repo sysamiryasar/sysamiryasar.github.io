@@ -18,4 +18,18 @@
   --ease: cubic-bezier(.65, 0, .35, 1);
 }
 
+[data-theme="light"] {
+  --ink: #f8f9fc;
+  --ink-soft: #eef0f5;
+  --surface: rgba(240, 242, 249, .72);
+  --line: rgba(8, 9, 14, .12);
+  --line-bright: rgba(8, 9, 14, .24);
+  --paper: #0d0f16;
+  --muted: #596174;
+  --dim: #9ba3b8;
+  --cyan: #0891b2;
+  --blue: #3b5bdb;
+  --violet: #7c3aed;
+}
+
 @media (max-width: 720px) { :root { --page: calc(100vw - 40px); } }
