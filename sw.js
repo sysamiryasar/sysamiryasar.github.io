@@ -1,4 +1,4 @@
-const CACHE_NAME = "samir-yasar-v6";
+const CACHE_NAME = "samir-yasar-v7";
 const ASSETS = [
   "/",
   "/index.html",
@@ -13,7 +13,6 @@ const ASSETS = [
   "/contact.html",
   "/experience.html",
   "/faq.html",
-  "/gallery.html",
   "/press.html",
   "/projects.html",
   "/resume.html",
