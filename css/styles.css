@@ -57,6 +57,10 @@ button { font: inherit; color: inherit; }
 .hero-video-overlay { position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(8,9,14,.55) 0%, rgba(8,9,14,.2) 40%, rgba(8,9,14,.75) 100%); pointer-events: none; }
 @media (max-width: 620px) { .hero-video { opacity: .4; } }
 
+/* Floating SILA teaser clues */
+.sila-clue { position: fixed; z-index: 4; pointer-events: none; color: #f2b64c; opacity: .14; font: 10px var(--mono); letter-spacing: .16em; text-transform: uppercase; animation: clue-drift 16s ease-in-out infinite; }
+@keyframes clue-drift { 0%, 100% { transform: translateY(0); opacity: .09; } 50% { transform: translateY(-14px); opacity: .2; } }
+
 /* Card visuals for teaser cards */
 .pricing-card .card-visual { position: relative; height: 180px; overflow: hidden; border-radius: 12px; margin-bottom: 8px; }
 .pricing-card .card-visual--media { background: radial-gradient(circle at 50% 70%, rgba(84,125,255,.3), transparent 42%), linear-gradient(160deg,#0a1325,#0c0e17); }
