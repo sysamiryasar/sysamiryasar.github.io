@@ -34,7 +34,7 @@ const ASSETS = [
   "/css/animations.css",
   "/css/styles.css",
   "/css/content.css",
-  "/assets/logo_favicon.png",
+  "/assets/logo_favicon_small.png",
   "/manifest.webmanifest",
 ];
 
