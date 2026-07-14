@@ -3,5 +3,6 @@
   document.body.classList.add('is-loading');
   window.addEventListener('load', () => {
     window.setTimeout(() => { document.getElementById('siteLoader')?.classList.add('is-done'); document.body.classList.remove('is-loading'); }, 1250);
+    if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js').catch(() => {});
   });
 }());
